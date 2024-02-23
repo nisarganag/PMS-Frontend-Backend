@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 class MainPage extends Component {
-    constructor(props) {
+    constructor(props: object | Readonly<object>) {
         super(props);
         this.state = {
             // state
