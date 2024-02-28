@@ -9,5 +9,5 @@ import com.major.pmsbackend.entity.Users;
 public interface UserRepo extends CrudRepository<Users, Long>{
     @SuppressWarnings({ "null", "unchecked" })
     Users save(Users user);
-    Users findAllByemail(String email);   
+    Users findByEmail(String email);   
 }
