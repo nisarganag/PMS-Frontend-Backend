@@ -16,4 +16,11 @@ public class UserService {
     public Users loginUserData(String email) {
         return userRepo.findByEmail(email);
     }
+    public boolean validateUser(String email, String password) {
+        Users user = userRepo.findByEmail(email);
+        if(user != null && user.getPassword().equals(password)) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -12,7 +12,7 @@ import com.major.pmsbackend.entity.Users;
 import com.major.pmsbackend.service.UserService;
 
 @RestController
-@RequestMapping("/snruv/users/")
+@RequestMapping("/user/")
 public class UserController {
     @Autowired
     UserService userService;
@@ -26,4 +26,5 @@ public class UserController {
         Users userData=userService.loginUserData(email);
         return userData;
     }
+    
 }

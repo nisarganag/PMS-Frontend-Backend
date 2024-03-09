@@ -1,8 +1,8 @@
 
 function Alerts() {
     return (
-        <div>
-            Alerts
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <h1>Alerts</h1>
         </div>
     );
 }

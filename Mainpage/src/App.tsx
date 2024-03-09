@@ -1,7 +1,7 @@
-import './App.css'
-import Sidebar from './Components/Sidebar'
+import { useState } from 'react';
+import './App.css'; // Import your CSS file containing styles for dark and light modes
+import Sidebar from './Components/Sidebar';
 import {
-  BrowserRouter,
   Route,
   Routes,
 } from "react-router-dom";
@@ -14,54 +14,41 @@ import Settings from './routes/settings';
 import Alerts from './routes/Alerts';
 import Home from './routes/Homepage';
 import Login from './routes/Login';
-
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const toggleMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
     <>
-    <div >
-      <div>
-        <Sidebar/>
-      </div>
+      <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
+        <button onClick={toggleMode} className="mode-toggle">
+          {isDarkMode ? <FaSun className="sun-icon" /> : <FaMoon className="moon-icon" />}
+        </button>
 
-      <div className="routes">
-        <Routes>
-          <Route path="/My_profile" element = {<My_profile/>}/>
-          <Route path="/Advanced_search" element = {<Advanced_search/>}/>
-          <Route path="/Metrices" element = {<Metrices/>}/>
-          <Route path="/My_library" element = {<My_library/>}/>
-          <Route path="/Settings" element = {<Settings/>}/>
-          <Route path="/Alerts" element = {<Alerts/>}/>
-          <Route path="/Home" element = {<Home/>}/>
-          <Route path="/Login" element = {<Login/>}/>
-        </Routes>
+        <div className="content">
+          <Sidebar />
+          <div className="routes">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/My_profile" element={<My_profile />} />
+              <Route path="/Advanced_search" element={<Advanced_search />} />
+              <Route path="/Metrices" element={<Metrices />} />
+              <Route path="/My_library" element={<My_library />} />
+              <Route path="/Settings" element={<Settings />} />
+              <Route path="/Alerts" element={<Alerts />} />
+              <Route path="/Home" element={<Home />} />
+              <Route path="/Login" element={<Login />} />
+            </Routes>
+          </div>
+        </div>
       </div>
-      
-    </div>
-      
-      
-
     </>
   )
 }
-export default App
 
-
-// const router = createBrowserRouter(
-//   createRoutesFromElements(
-//     <Route element = {<App/>}>
-//       <Route path="/My_profile" element = {<My_profile/>}/>
-//       <Route path="/Advanced_search" element = {<Advanced_search/>}/>
-//       <Route path="/Metrices" element = {<Metrices/>}/>
-//       <Route path="/My_library" element = {<My_library/>}/>
-//       <Route path="/Settings" element = {<Settings/>}/>
-//       <Route path="/Alerts" element = {<Alerts/>}/>
-//     </Route>
-//   )
-// )
-
-
-// createRoot(document.getElementById("root")).render(
-//   <RouterProvider router={router} />
-// );
+export default App;

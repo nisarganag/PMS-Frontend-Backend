@@ -1,10 +1,8 @@
 function Home() {
     return (
-        <h1>
-            Search page
-        </h1>
-        
-       
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <h1>Search page</h1>
+        </div>
     );
 }
 
