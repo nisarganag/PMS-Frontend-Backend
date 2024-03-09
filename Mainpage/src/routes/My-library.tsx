@@ -1,8 +1,8 @@
 
 function My_library() {
     return (
-        <div>
-            My_library
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <h1>My Library</h1>
         </div>
     );
 }

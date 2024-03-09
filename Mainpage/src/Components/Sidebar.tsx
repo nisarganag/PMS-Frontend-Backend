@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react';
 import { FaBars } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa";
 import { IoIosStar } from "react-icons/io";
@@ -12,93 +12,98 @@ import { FaRegUser } from "react-icons/fa";
 import './Sidebar.css'; 
 
 const Sidebar = () => {
+    const [show, setShow] = useState(false);
+    const [activeLink, setActiveLink] = useState("Home"); // Track active link
 
-    const[show, setShow] = useState(false)
-
-    
+    // Function to handle click on a link
+    const handleLinkClick = (linkName: string) => {
+        setActiveLink(linkName);
+    }
 
     return (
-    <main className = {show? 'space-toggle' : ''}>
-        <header className= {`header ${show ? 'space-toggle' : null }`}>
-            <div className="header-toggle " onClick={() => setShow(!show)}>
-                <FaBars />
-            </div>
+        <main className={show ? 'space-toggle' : ''}>
+            <header className={`header ${show ? 'space-toggle' : ''}`}>
+                <div className="header-toggle" onClick={() => setShow(!show)}>
+                    <FaBars />
+                </div>
 
-            <div>
-                <Link to="Login" className="userInfo">
-                    <FaRegUser />
-
-                </Link>
-            </div>
-
-        </header>
-
-        <aside className={`sidebar ${show ? 'show' : null}`}>
-            <nav className="nav ">
                 <div>
-                    <Link to="Home" className="nav-logo active">
-                        <FaHome className='nav-logo-icon' />
-                            <span className="nav-logo-name">
-                                Home
-                            </span>
+                    <Link to="Login" className="userInfo">
+                        <FaRegUser />
                     </Link>
+                </div>
+            </header>
 
-                    <div className="nav-list">
-
-                    <Link to="My_profile" className="nav-link">
-                        <FaGraduationCap className='nav-logo-icon' />
-                            <span className="nav-logo-name">
-                                My Profile
-                            </span>
-                    </Link>
-
-                    <Link to="My_library" className="nav-link ">
-                        <IoIosStar className='nav-logo-icon' />
-                        <span className="nav-logo-name">
-                            My Library
-                        </span>
-                    </Link>
-
-                    <Link to="Alerts" className="nav-link">
-                        <IoMail className='nav-logo-icon'/>
-                        <span className="nav-logo-name">
-                        Alerts
-                        </span>
-                    </Link>
-
-                    <Link to="Metrices" className="nav-link">
-                        <ImStatsBars2 className='nav-logo-icon'/>
-                        <span className="nav-logo-name">
-                            Metrices
-                        </span>
-                    </Link>
-
-                    </div>
-
-                
-                    <div className="advanced-search">
-                        <Link to="Advanced_search" className="nav-link">
-                            <GrSearchAdvanced className='nav-logo-icon'/>
-                            <span className="nav-logo-name">
-                                Advanced Search
-                            </span>
-                        </Link> 
-                    </div>  
-                
-
-                    <div className="settings">
-                        <Link to="/Settings" className="nav-link">
-                            <IoMdSettings className='nav-logo-icon'/>
-                            <span className="nav-logo-name">
-                                Settings
-                            </span>
+            <aside className={`sidebar ${show ? 'show' : ''}`}>
+                <nav className="nav">
+                    <div>
+                        <Link 
+                            to="Home" 
+                            className={`nav-link ${activeLink === 'Home' ? 'active' : ''}`} 
+                            onClick={() => handleLinkClick('Home')}
+                        >
+                            <FaHome className='nav-logo-icon' />
+                            <span className="nav-logo-name">Home</span>
                         </Link>
-                    </div>
-                </div> 
-            </nav>
-        </aside>
-    </main>
-  )
+
+                        <Link 
+                            to="My_profile" 
+                            className={`nav-link ${activeLink === 'My_profile' ? 'active' : ''}`} 
+                            onClick={() => handleLinkClick('My_profile')}
+                        >
+                            <FaGraduationCap className='nav-logo-icon' />
+                            <span className="nav-logo-name">My Profile</span>
+                        </Link>
+
+                        <Link 
+                            to="My_library" 
+                            className={`nav-link ${activeLink === 'My_library' ? 'active' : ''}`} 
+                            onClick={() => handleLinkClick('My_library')}
+                        >
+                            <IoIosStar className='nav-logo-icon' />
+                            <span className="nav-logo-name">My Library</span>
+                        </Link>
+
+                        <Link 
+                            to="Alerts" 
+                            className={`nav-link ${activeLink === 'Alerts' ? 'active' : ''}`} 
+                            onClick={() => handleLinkClick('Alerts')}
+                        >
+                            <IoMail className='nav-logo-icon'/>
+                            <span className="nav-logo-name">Alerts</span>
+                        </Link>
+
+                        <Link 
+                            to="Metrices" 
+                            className={`nav-link ${activeLink === 'Metrices' ? 'active' : ''}`} 
+                            onClick={() => handleLinkClick('Metrices')}
+                        >
+                            <ImStatsBars2 className='nav-logo-icon'/>
+                            <span className="nav-logo-name">Metrices</span>
+                        </Link>
+
+                        <Link 
+                            to="Advanced_search" 
+                            className={`nav-link ${activeLink === 'Advanced_Search' ? 'active' : ''}`}
+                            onClick={() => handleLinkClick('Advanced_Search')}
+                        >
+                            <GrSearchAdvanced className='nav-logo-icon'/>
+                            <span className="nav-logo-name">Advanced Search</span>
+                        </Link> 
+
+                        <Link 
+                            to="Settings" 
+                            className={`nav-link ${activeLink === 'Settings' ? 'active' : ''}`}
+                            onClick={() => handleLinkClick('Settings')}
+                            >
+                            <IoMdSettings className='nav-logo-icon'/>
+                            <span className="nav-logo-name">Settings</span>
+                        </Link>
+                    </div> 
+                </nav>
+            </aside>
+        </main>
+    );
 }
 
-export default Sidebar
+export default Sidebar;

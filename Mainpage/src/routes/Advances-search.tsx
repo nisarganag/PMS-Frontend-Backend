@@ -1,8 +1,8 @@
 
 function Advanced_search() {
     return (
-        <div>
-            Advanced search
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <h1>Advanced Searches</h1>
         </div>
     );
 }

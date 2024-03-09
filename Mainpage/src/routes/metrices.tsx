@@ -1,8 +1,8 @@
 
 function Metrices() {
     return (
-        <div>
-            Metrices
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <h1>Metrices</h1>
         </div>
     );
 }

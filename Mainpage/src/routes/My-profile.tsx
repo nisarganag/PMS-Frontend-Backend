@@ -1,8 +1,8 @@
 
 function My_profile() {
     return (
-        <div>
-            My Profile
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <h1>My profile</h1>
         </div>
     );
 }
