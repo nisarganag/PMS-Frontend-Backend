@@ -56,4 +56,10 @@
     flex: 1;
     padding: 20px;
   }
+
+  .DropDownprofile{
+      width: 200px;
+      background-color: #333; /* Dark background color for sidebar */
+      color: #fff;
+  }
   

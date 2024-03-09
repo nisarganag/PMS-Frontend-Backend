@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css'; // Import your CSS file containing styles for dark and light modes
 import Sidebar from './Components/Sidebar';
+import DropDownProfile from './Components/Sidebar';
 import {
   Route,
   Routes,
@@ -29,8 +30,10 @@ function App() {
         <button onClick={toggleMode} className="mode-toggle">
           {isDarkMode ? <FaSun className="sun-icon" /> : <FaMoon className="moon-icon" />}
         </button>
+        
 
         <div className="content">
+          <DropDownProfile/>
           <Sidebar />
           <div className="routes">
             <Routes>
