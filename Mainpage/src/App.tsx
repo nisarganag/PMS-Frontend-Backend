@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css'; // Import your CSS file containing styles for dark and light modes
 import Sidebar from './Components/Sidebar';
-import DropDownProfile from './Components/Sidebar';
 import {
   Route,
   Routes,
@@ -33,7 +32,6 @@ function App() {
         
 
         <div className="content">
-          <DropDownProfile/>
           <Sidebar />
           <div className="routes">
             <Routes>
