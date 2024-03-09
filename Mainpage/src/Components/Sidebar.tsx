@@ -11,6 +11,37 @@ import { Link } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
 import './Sidebar.css'; 
 
+const DropDownProfile = () => {
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+
+    return(
+        <div className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
+            <div>
+                <div>
+                    
+                </div>   
+            </div>
+            <button className="dropbtn">
+                <Link to="Login" className="userLogo">
+                    <FaRegUser />
+                </Link>
+            </button>
+            {showDropdown && (
+                <div className="dropdown-content">
+                    <a href="#">Account</a>
+                    <a href="#">Help & Info</a>
+                    <a href="#">Logout</a>
+                </div>
+            )}
+        </div>
+    )
+}
+
+
 const Sidebar = () => {
 
     const[show, setShow] = useState(false)
@@ -24,17 +55,17 @@ const Sidebar = () => {
                 <FaBars />
             </div>
 
-            <div>
-                <Link to="Login" className="userInfo">
-                    <FaRegUser />
+            
 
-                </Link>
-            </div>
+            <DropDownProfile/>
+            
 
         </header>
 
+        
+
         <aside className={`sidebar ${show ? 'show' : null}`}>
-            <nav className="nav ">
+            <nav className="nav">
                 <div>
                     <Link to="Home" className="nav-logo active">
                         <FaHome className='nav-logo-icon' />
@@ -45,33 +76,33 @@ const Sidebar = () => {
 
                     <div className="nav-list">
 
-                    <Link to="My_profile" className="nav-link">
-                        <FaGraduationCap className='nav-logo-icon' />
+                        <Link to="My_profile" className="nav-link">
+                            <FaGraduationCap className='nav-logo-icon' />
+                                <span className="nav-logo-name">
+                                    My Profile
+                                </span>
+                        </Link>
+
+                        <Link to="My_library" className="nav-link ">
+                            <IoIosStar className='nav-logo-icon' />
                             <span className="nav-logo-name">
-                                My Profile
+                                My Library
                             </span>
-                    </Link>
+                        </Link>
 
-                    <Link to="My_library" className="nav-link ">
-                        <IoIosStar className='nav-logo-icon' />
-                        <span className="nav-logo-name">
-                            My Library
-                        </span>
-                    </Link>
+                        <Link to="Alerts" className="nav-link">
+                            <IoMail className='nav-logo-icon'/>
+                            <span className="nav-logo-name">
+                            Alerts
+                            </span>
+                        </Link>
 
-                    <Link to="Alerts" className="nav-link">
-                        <IoMail className='nav-logo-icon'/>
-                        <span className="nav-logo-name">
-                        Alerts
-                        </span>
-                    </Link>
-
-                    <Link to="Metrices" className="nav-link">
-                        <ImStatsBars2 className='nav-logo-icon'/>
-                        <span className="nav-logo-name">
-                            Metrices
-                        </span>
-                    </Link>
+                        <Link to="Metrices" className="nav-link">
+                            <ImStatsBars2 className='nav-logo-icon'/>
+                            <span className="nav-logo-name">
+                                Metrices
+                            </span>
+                        </Link>
 
                     </div>
 
