@@ -19,7 +19,7 @@ const DropDownProfile = () => {
     };
 
     return(
-        <div className="dropdown "  onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown } >
+        <div className={"dropdown"}  onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown } >
             <button className="dropbtn">
                 <Link to="Login" className="userLogo">
                     <FaRegUser />

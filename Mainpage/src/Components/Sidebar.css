@@ -195,7 +195,7 @@ main {
   }
   
   .dropbtn {
-    background-color: #ffffff;
+    background: none;
     padding: 16px;
     font-size: 16px;
     border: none;
@@ -221,7 +221,7 @@ main {
   }
   
   .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: rgb(251, 251, 251);
   }
   
   .dropdown:hover .dropdown-content {
