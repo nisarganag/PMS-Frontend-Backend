@@ -34,6 +34,7 @@ function App() {
           <Sidebar />
           <div className="routes">
             <Routes>
+              <Route path="/" element={<Home />} />
               <Route path="/My_profile" element={<My_profile />} />
               <Route path="/Advanced_search" element={<Advanced_search />} />
               <Route path="/Metrices" element={<Metrices />} />
