@@ -116,7 +116,7 @@ main {
 .nav-link:hover {
     color: var(--white-color);
     left: 5%;
-    background-color: var(--highlight-color); /* Light gray background on hover */
+    ; /* Light gray background on hover */
 }
 
 .active {
@@ -127,10 +127,10 @@ main {
 .active::before {
     content: "";
     position: absolute;
-    left: -4px;
+    left: -16px;
     top: 0;
-    height: 1.6rem;
-    width: 3px;
+    height: 1.9rem;
+    width: 4px;
     background-color: var(--white-color);
     transition: 0.5s;
 }
@@ -166,6 +166,14 @@ main {
     .space-toggle {
         padding-left: calc(var(--nav-width) + 188px);
     }
+
+
+}
+
+.dark-mode {
+    --first-color: var(--dark-background);
+    --white-color: var(--dark-text-color);
+    --highlight-color: #444444; /* Dark gray for highlight in dark mode */
 }
 
 .userLogo{

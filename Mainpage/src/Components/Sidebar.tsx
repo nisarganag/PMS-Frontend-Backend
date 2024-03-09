@@ -19,19 +19,14 @@ const DropDownProfile = () => {
     };
 
     return(
-        <div className="dropdown" onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
-            <div>
-                <div>
-                    
-                </div>   
-            </div>
+        <div className="dropdown "  onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown } >
             <button className="dropbtn">
                 <Link to="Login" className="userLogo">
                     <FaRegUser />
                 </Link>
             </button>
             {showDropdown && (
-                <div className="dropdown-content">
+                <div className="dropdown-content ">
                     <a href="#">Account</a>
                     <a href="#">Help & Info</a>
                     <a href="#">Logout</a>
@@ -57,13 +52,10 @@ const Sidebar = () => {
                 <div className="header-toggle" onClick={() => setShow(!show)}>
                     <FaBars />
                 </div>
-
+                <DropDownProfile/>
             
 
-            <DropDownProfile/>
-            
-
-        </header>
+            </header>
 
         
 
