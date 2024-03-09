@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css'; // Import your CSS file containing styles for dark and light modes
 import Sidebar from './Components/Sidebar';
 import {
