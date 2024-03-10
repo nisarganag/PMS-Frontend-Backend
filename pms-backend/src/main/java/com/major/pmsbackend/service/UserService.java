@@ -1,26 +1,28 @@
-package com.major.pmsbackend.service;
+// package com.major.pmsbackend.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+// import java.util.Optional;
 
-import com.major.pmsbackend.entity.Users;
-import com.major.pmsbackend.repository.UserRepo;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Service;
 
-@Service
-public class UserService {
-    @Autowired
-    UserRepo userRepo;
-    public Users registerUserData(Users user) {
-        return userRepo.save(user);
-    }
-    public Users loginUserData(String email) {
-        return userRepo.findByEmail(email);
-    }
-    public boolean validateUser(String email, String password) {
-        Users user = userRepo.findByEmail(email);
-        if(user != null && user.getPassword().equals(password)) {
-            return true;
-        }
-        return false;
-    }
-}
+// import com.major.pmsbackend.entity.Users;
+// import com.major.pmsbackend.repository.UserRepo;
+
+// @Service
+// public class UserService {
+//     @Autowired
+//     UserRepo userRepo;
+//     public Users registerUserData(Users user) {
+//         return userRepo.save(user);
+//     }
+//     public Optional<Users> loginUserData(String email) {
+//         return userRepo.findByEmail(email);
+//     }
+//     public boolean validateUser(String email, String password) {
+//         Optional<Users> user = userRepo.findByEmail(email);
+//         if(user != null && user.getPassword().equals(password)) {
+//             return true;
+//         }
+//         return false;
+//     }
+// }
