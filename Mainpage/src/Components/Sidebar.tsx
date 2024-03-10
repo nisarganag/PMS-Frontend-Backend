@@ -27,7 +27,7 @@ const DropDownProfile = () => {
             </button>
             {showDropdown && (
                 <div className="dropdown-content ">
-                    <a href="#">Account</a>
+                    <a href="login">Account</a>
                     <a href="#">Help & Info</a>
                     <a href="#">Logout</a>
                 </div>
