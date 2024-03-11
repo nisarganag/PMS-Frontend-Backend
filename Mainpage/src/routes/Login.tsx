@@ -1,14 +1,42 @@
 import { useState } from 'react';
+import axios from 'axios'; // Import Axios library
 import './Login.css';
 
-const Login = ({ onToggle }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+const Login = ({ onToggle }: { onToggle: () => void }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [, setMessage] = useState(''); // Add this line
+
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    
     e.preventDefault();
-    console.log('Username:', username);
-    console.log('Password:', password);
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', {
+        email,
+        password,
+      });
+  
+      const token = response.data.token;
+  
+      // Store the token in local storage
+      localStorage.setItem('token', token);
+      
+  
+      // Fetch the message from the server
+      const response2 = await axios.get('http://localhost:8080/api/v1/demo-controller', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+  
+      // Set the message
+      setMessage(response2.data);
+      console.log(response2.data +" "+ email); // Add this line
+    } catch (error) {
+      console.error('Login failed:', error);
+      // console.log('Error details:', error.response.data); // Handle login failure
+    }
   };
 
   return (
@@ -20,8 +48,8 @@ const Login = ({ onToggle }) => {
           <input
             type="text"
             id="login-username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your username"
             required
           />
@@ -44,18 +72,28 @@ const Login = ({ onToggle }) => {
   );
 };
 
-const SignupPage = ({ onToggle }) => {
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
+const SignupPage = ({ onToggle }: { onToggle: () => void }) => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = (e: { preventDefault: () => void; }) => {
+    const handleSubmit = async (e: { preventDefault: () => void; }) => { // Modify to async function
         e.preventDefault();
-        console.log('New Firstname:', firstname);
-        console.log('New Lastname:', lastname);
-        console.log('New email:', email);
-        console.log('New Password:', password);
+        try {
+          const response = await axios.post('http://localhost:8080/api/v1/auth/register', {
+            firstName,
+            lastName,
+            email,
+            password,
+          });
+          const SignUpToken = response.data.token;
+          localStorage.setItem('SignUpToken', SignUpToken);
+          console.log('Signup Successful'); // Optional: You can handle signup success here
+          console.log(SignUpToken);
+        } catch (error) {
+          console.error('Signup failed:', error); // Handle signup failure
+        }
     };
 
   return (
@@ -63,25 +101,25 @@ const SignupPage = ({ onToggle }) => {
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
         <div className="form-group">
-          <label htmlFor="signup-firstname">Firstname</label>
+          <label htmlFor="signup-firstname">First Name</label>
           <input
             type="text"
-            id="signup-fullname"
-            value={firstname}
-            onChange={(e) => setFirstname(e.target.value)}
-            placeholder="Enter your First name"
+            id="signup-firstname"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="Enter your First Name"
             required
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="signup-lasttname">Lastname</label>
+          <label htmlFor="signup-lastname">Last Name</label>
           <input
             type="text"
             id="signup-lastname"
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
-            placeholder="Enter your Last name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Enter your Last Name"
             required
           />
         </div>
@@ -105,7 +143,7 @@ const SignupPage = ({ onToggle }) => {
             id="signup-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
+            placeholder="Enter your Password"
             required
           />
         </div>
