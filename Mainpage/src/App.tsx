@@ -12,7 +12,7 @@ import Metrices from './routes/metrices';
 import My_library from './routes/My-library';
 import Settings from './routes/settings';
 import Alerts from './routes/Alerts';
-import Home from './routes/Homepage';
+import Home from './routes/Homepage/Homepage';
 import Login from './routes/Login';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
