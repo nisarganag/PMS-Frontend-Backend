@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Home.css';
 import Searchbar from './Searchbar'
+import SearchResults from './SearchResults';
 
 function Home() {
   
@@ -9,7 +10,7 @@ function Home() {
     <div className='homePage'>
         <div className='search_bar'>
             <Searchbar />
-            <div> Search here</div>
+            <SearchResults />
         </div>
     </div>
     
