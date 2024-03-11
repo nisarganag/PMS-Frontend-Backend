@@ -36,6 +36,6 @@ public class Publications {
     private String publishedData;
 
     @ManyToOne
-    @JoinColumn(name = "user_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "user_Id", insertable = true, updatable = true)
     private Users user;
 }
