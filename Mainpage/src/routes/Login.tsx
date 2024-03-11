@@ -3,12 +3,12 @@ import axios from 'axios'; // Import Axios library
 import './Login.css';
 
 
-const Login = ({ onToggle }) => {
+const Login = ({ onToggle }: { onToggle: () => void }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState(''); // Add this line
+  const [, setMessage] = useState(''); // Add this line
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     
     e.preventDefault();
     try {
@@ -35,7 +35,7 @@ const Login = ({ onToggle }) => {
       console.log(response2.data +" "+ email); // Add this line
     } catch (error) {
       console.error('Login failed:', error);
-      console.log('Error details:', error.response.data); // Handle login failure
+      // console.log('Error details:', error.response.data); // Handle login failure
     }
   };
 
@@ -72,9 +72,9 @@ const Login = ({ onToggle }) => {
   );
 };
 
-const SignupPage = ({ onToggle }) => {
-    const [firstname, setFirstname] = useState('');
-    const [lastname, setLastname] = useState('');
+const SignupPage = ({ onToggle }: { onToggle: () => void }) => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -82,12 +82,15 @@ const SignupPage = ({ onToggle }) => {
         e.preventDefault();
         try {
           const response = await axios.post('http://localhost:8080/api/v1/auth/register', {
-            firstname,
-            lastname,
+            firstName,
+            lastName,
             email,
             password,
           });
+          const SignUpToken = response.data.token;
+          localStorage.setItem('SignUpToken', SignUpToken);
           console.log('Signup Successful'); // Optional: You can handle signup success here
+          console.log(SignUpToken);
         } catch (error) {
           console.error('Signup failed:', error); // Handle signup failure
         }
@@ -98,25 +101,25 @@ const SignupPage = ({ onToggle }) => {
       <form className="auth-form" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
         <div className="form-group">
-          <label htmlFor="signup-firstname">Firstname</label>
+          <label htmlFor="signup-firstname">First Name</label>
           <input
             type="text"
             id="signup-firstname"
-            value={firstname}
-            onChange={(e) => setFirstname(e.target.value)}
-            placeholder="Enter your First name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            placeholder="Enter your First Name"
             required
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="signup-lastname">Lastname</label>
+          <label htmlFor="signup-lastname">Last Name</label>
           <input
             type="text"
             id="signup-lastname"
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
-            placeholder="Enter your Last name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            placeholder="Enter your Last Name"
             required
           />
         </div>
@@ -140,7 +143,7 @@ const SignupPage = ({ onToggle }) => {
             id="signup-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter your password"
+            placeholder="Enter your Password"
             required
           />
         </div>
