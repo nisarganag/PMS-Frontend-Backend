@@ -44,6 +44,7 @@ public class PublicationService {
             .source(publication.getSource())
             .author(publication.getAuthor())
             .publishedData(publication.getPublishedData())
+            .user(publication.getUser())
             .data(DataUtils.compressData(file.getBytes()))
             .build());
            
