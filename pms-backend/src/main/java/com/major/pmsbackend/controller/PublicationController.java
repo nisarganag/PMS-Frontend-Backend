@@ -1,5 +1,7 @@
 package com.major.pmsbackend.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.major.pmsbackend.dto.PublicationDTO;
 import com.major.pmsbackend.entity.Publications;
 import com.major.pmsbackend.service.PublicationService;
 
@@ -22,18 +25,26 @@ import com.major.pmsbackend.service.PublicationService;
 public class PublicationController {
     @Autowired
     private PublicationService publicationService;
-    
+
     @Secured("USER")
     @PostMapping("/upload")
-    public ResponseEntity <?> uploadPublication(@RequestParam ("data")MultipartFile file, @RequestParam("publication") String publicationJson) throws Exception{
+    public ResponseEntity<?> uploadPublication(@RequestParam("data") MultipartFile file,
+            @RequestParam("publication") String publicationJson) throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         Publications publication = objectMapper.readValue(publicationJson, Publications.class);
-        String uploadPublication=publicationService.uploadPublication(file, publication);
+        String uploadPublication = publicationService.uploadPublication(file, publication);
         return ResponseEntity.status(HttpStatus.OK).body(uploadPublication);
     }
+
     @GetMapping("/download/{id}")
-    public ResponseEntity <?> downloadPublication(@PathVariable Long id){
-        byte[] downloadPublication=publicationService.downloadPublication(id);
-        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf("application/pdf")).body(downloadPublication);
+    public ResponseEntity<?> downloadPublication(@PathVariable Long id) {
+        byte[] downloadPublication = publicationService.downloadPublication(id);
+        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.valueOf("application/pdf"))
+                .body(downloadPublication);
+    }
+
+    @GetMapping("/all/{userId}")
+    public List<PublicationDTO> getAllPublicationsByUserId(@PathVariable Long userId) {
+        return publicationService.getPublicationsByUserId(userId);
     }
 }

@@ -1,5 +1,7 @@
 package com.major.pmsbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,6 +42,7 @@ public class Publications {
     private byte[] data;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "user_Id", insertable = true, updatable = true)
     private Users user;
 }

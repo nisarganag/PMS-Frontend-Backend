@@ -37,4 +37,5 @@ public interface PublicationRepository extends JpaRepository<Publications, Long>
     List<Publications> findByUserAndLanguageAndSource(Users user, String language, String source);
     List<Publications> findByUserAndLanguageAndAuthor(Users user, String language, String author);
     List<Publications> findByUserAndLanguageAndPublishedData(Users user, String language, String publishedData);
+    List<Publications> findByUserId(Long userId);
 }

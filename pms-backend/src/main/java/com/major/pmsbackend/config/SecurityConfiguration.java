@@ -30,7 +30,8 @@ public class SecurityConfiguration extends SecurityConfigurerAdapter <DefaultSec
                         .disable())
                 .authorizeRequests(authorizeRequests -> authorizeRequests
                         .requestMatchers("/api/v1/auth/**").permitAll()
-                        .requestMatchers("/api/v1/demo-controller/**").authenticated()
+                        .requestMatchers("/api/v1/publications/all/**").permitAll()
+                        .requestMatchers("/api/v1/publications/download/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(management -> management
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
