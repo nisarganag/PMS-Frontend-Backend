@@ -36,7 +36,7 @@ public class Publications {
     private String author;
     private String publishedData;
     @Lob
-    @Column(name="data",length = 1000000)
+    @Column(name="data",columnDefinition="LONGBLOB")
     private byte[] data;
 
     @ManyToOne
