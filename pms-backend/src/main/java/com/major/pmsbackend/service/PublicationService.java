@@ -66,6 +66,7 @@ public class PublicationService {
     public List<PublicationDTO> getPublicationsByUserId(Long userId) {
         List<Publications> publications = publicationRepository.findByUserId(userId);
         return publications.stream()
+                .filter(publication -> publication.getUser().getId().equals(userId)) // Filter by user ID
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
     }
@@ -73,7 +74,7 @@ public class PublicationService {
     private PublicationDTO convertToDTO(Publications publication) {
         PublicationDTO dto = new PublicationDTO();
         dto.setId(publication.getId());
-        // dto.setUser(publication.getUser());
+        dto.setUserId(publication.getUser().getId());
         dto.setTitle(publication.getTitle());
         dto.setDescription(publication.getDescription());
         dto.setCategory(publication.getCategory());
@@ -83,10 +84,16 @@ public class PublicationService {
         dto.setAuthor(publication.getAuthor());
         dto.setPublishedData(publication.getPublishedData());
         // if (publication.getData() != null) {
-        //     dto.setData(DataUtils.decompressData(publication.getData()));
+        // dto.setData(DataUtils.decompressData(publication.getData()));
         // } else {
-        //     dto.setData(null);
+        // dto.setData(null);
         // }
+
         return dto;
+    }
+
+    @SuppressWarnings("null")
+    public void deletePublication(Long id) {
+        publicationRepository.deleteById(id);
     }
 }

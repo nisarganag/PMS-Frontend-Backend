@@ -1,6 +1,5 @@
 package com.major.pmsbackend.dto;
 
-// import com.major.pmsbackend.entity.Users;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class PublicationDTO {
     private Long id;
-    // private Users user;
+    private Long userId;
     private String title;
     private String description;
     private String category;
@@ -23,5 +22,6 @@ public class PublicationDTO {
     private String author;
     private String publishedData;
     // private byte[] data;
+    // private byte[] thumbnail;
     
 }
