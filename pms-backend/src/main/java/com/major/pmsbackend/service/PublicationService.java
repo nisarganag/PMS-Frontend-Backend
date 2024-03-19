@@ -1,6 +1,8 @@
 package com.major.pmsbackend.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 // import org.hibernate.mapping.List;
@@ -96,4 +98,22 @@ public class PublicationService {
     public void deletePublication(Long id) {
         publicationRepository.deleteById(id);
     }
+    @SuppressWarnings("null")
+    public void updatePublication(Long id, Publications updatedPublication) {
+    Optional<Publications> optionalPublication = publicationRepository.findById(id);
+    if (optionalPublication.isPresent()) {
+        Publications publication = optionalPublication.get();
+        publication.setTitle(updatedPublication.getTitle());
+        publication.setAuthor(updatedPublication.getAuthor());
+        publication.setCategory(updatedPublication.getCategory());
+        publication.setCountry(updatedPublication.getCountry());
+        publication.setDescription(updatedPublication.getDescription());
+        publication.setLanguage(updatedPublication.getLanguage());
+        publication.setPublishedData(updatedPublication.getPublishedData());
+        publication.setSource(updatedPublication.getSource());
+        publicationRepository.save(publication);
+    } else {
+        throw new NoSuchElementException("No publication found with id " + id);
+    }
+}
 }
