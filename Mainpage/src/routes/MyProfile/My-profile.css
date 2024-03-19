@@ -1,0 +1,110 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: auto;
+    min-width: 400px;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: transparent;
+    padding: 30px;
+    border: 3px solid #959595;
+    border-radius: 8px;
+    box-shadow: 0px 10px 300px rgba(0, 0, 0, 0.1);
+    align-items: center;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+    display: flex;
+    
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"] {
+    width: calc(100% - 70px);
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:read-only,
+  input[type="email"]:read-only,
+  input[type="tel"]:read-only {
+    background-color: #f9f9f9;
+  }
+  
+  .save-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #b3b3b3;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .edit-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #b3b3b3;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #626262;
+    cursor: crosshair;
+  }
+
+  .save-button:hover {
+    background-color: #626262;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+      
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+    }
+  }
+
+  .Email-input{
+    margin-left: 30px;
+  }
+
+
+
+  

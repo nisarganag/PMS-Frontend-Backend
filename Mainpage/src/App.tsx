@@ -6,14 +6,14 @@ import {
   Routes,
 } from "react-router-dom";
 
-import My_profile from "./routes/My-profile"
+import My_profile from "./routes/MyProfile/My-profile"
 import Advanced_search from './routes/Advances-search';
 import Metrices from './routes/metrices';
 import My_library from './routes/My-library';
 import Settings from './routes/settings';
 import Alerts from './routes/Alerts';
 import Home from './routes/Homepage/Homepage';
-import Login from './routes/Login';
+import Login from './routes/LoginPage/Login';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
-        <button onClick={toggleMode} className="mode-toggle">
+        <button className="mode-toggle" onClick={toggleMode} >
           {isDarkMode ? <FaSun className="sun-icon" /> : <FaMoon className="moon-icon" />}
         </button>
         
