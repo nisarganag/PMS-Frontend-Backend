@@ -37,8 +37,8 @@ const UserProfile = () => {
   
   const handleSaveFirstName = async () => {
     try {
-      const response = await fetch('YOUR_BACKEND_API_ENDPOINT', {
-        method: 'PUT', // or 'PATCH' depending on your API
+      const response = await fetch('api-endpoint', {
+        method: 'PUT', 
         headers: {
           'Content-Type': 'application/json'
         },
