@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaEdit } from "react-icons/fa";
 import { FaSave } from "react-icons/fa";
 import './My-profile.css'
@@ -108,36 +108,40 @@ const UserProfile = () => {
 
   return (
     <div className="container">
-      <h1>User Profile</h1>
+      <h1>My Profile</h1>
       <div className="form-group-profile">
         <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          value={editedFirstName || userData.firstName}
-          onChange={(e) => setEditedFirstName(e.target.value)}
-          readOnly={!editedFirstName}
-        />
-        {editedFirstName ? (
-          <button className='save-button' onClick={handleSaveFirstName}><FaSave /></button>
-        ) : (
-          <button className='edit-button' onClick={handleEditFirstName}><FaEdit /></button>
-        )}
+        <div className="profile-detail">
+          <input
+            type="text"
+            id="firstName"
+            value={editedFirstName || userData.firstName}
+            onChange={(e) => setEditedFirstName(e.target.value)}
+            readOnly={!editedFirstName}
+          />
+          {editedFirstName ? (
+            <button className='save-button' onClick={handleSaveFirstName}><FaSave /></button>
+          ) : (
+            <button className='edit-button' onClick={handleEditFirstName}><FaEdit /></button>
+          )}
+        </div>
       </div>
       <div className="form-group-profile">
         <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          id="lastName"
-          value={editedLastName || userData.lastName}
-          onChange={(e) => setEditedLastName(e.target.value)}
-          readOnly={!editedLastName}
-        />
-        {editedLastName ? (
-          <button className='save-button' onClick={handleSaveLastName}><FaSave /></button>
-        ) : (
-          <button className='edit-button' onClick={handleEditLastName}><FaEdit /></button>
-        )}
+        <div className="profile-detail">
+          <input
+            type="text"
+            id="lastName"
+            value={editedLastName || userData.lastName}
+            onChange={(e) => setEditedLastName(e.target.value)}
+            readOnly={!editedLastName}
+          />
+          {editedLastName ? (
+            <button className='save-button' onClick={handleSaveLastName}><FaSave /></button>
+          ) : (
+            <button className='edit-button' onClick={handleEditLastName}><FaEdit /></button>
+          )}
+        </div>
       </div>
       <div className="form-group-profile">
         <label htmlFor="email">Email:</label>
@@ -150,18 +154,20 @@ const UserProfile = () => {
       </div>
       <div className="form-group-profile">
         <label htmlFor="phoneNumber">Phone Number:</label>
-        <input
-          type="tel"
-          id="phoneNumber"
-          value={editedPhoneNumber || userData.phoneNumber}
-          onChange={(e) => setEditedPhoneNumber(e.target.value)}
-          readOnly={!editedPhoneNumber}
-        />
-        {editedPhoneNumber ? (
-          <button className='save-button' onClick={handleSavePhoneNumber}><FaSave /></button>
-        ) : (
-          <button className='edit-button' onClick={handleEditPhoneNumber}><FaEdit /></button>
-        )}
+        <div className="profile-detail">
+          <input
+            type="tel"
+            id="phoneNumber"
+            value={editedPhoneNumber || userData.phoneNumber}
+            onChange={(e) => setEditedPhoneNumber(e.target.value)}
+            readOnly={!editedPhoneNumber}
+          />
+          {editedPhoneNumber ? (
+            <button className='save-button' onClick={handleSavePhoneNumber}><FaSave /></button>
+          ) : (
+            <button className='edit-button' onClick={handleEditPhoneNumber}><FaEdit /></button>
+          )}
+        </div>
       </div>
     </div>
   );
