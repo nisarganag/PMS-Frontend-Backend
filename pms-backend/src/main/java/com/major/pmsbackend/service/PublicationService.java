@@ -1,5 +1,6 @@
 package com.major.pmsbackend.service;
 
+import java.util.Base64;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.major.pmsbackend.dto.PublicationDTO;
 import com.major.pmsbackend.dto.SearchDTO;
+import com.major.pmsbackend.dto.ViewEachPublicationDTO;
 import com.major.pmsbackend.entity.Publications;
 import com.major.pmsbackend.entity.Users;
 import com.major.pmsbackend.repository.PublicationRepository;
@@ -122,15 +124,38 @@ public class PublicationService {
 
     public List<SearchDTO> searchPublications(String partialTitle) {
         List<Publications> results = publicationRepository.findByTitleStartingWithIgnoreCase(partialTitle);
+        List<Publications> results2 = publicationRepository.findByAuthorStartingWithIgnoreCase(partialTitle);
+        results.addAll(results2);
         return results.stream().map(this::convertToSearchDTO).collect(Collectors.toList());
     }
 
     private SearchDTO convertToSearchDTO(Publications publication) {
         SearchDTO dto = new SearchDTO();
         dto.setAuthor(publication.getAuthor());
+        // dto.setCategory(publication.getCategory());
+        // dto.setCountry(publication.getCountry());
+        // dto.setData(publication.getData());
+        // dto.setDescription(publication.getDescription());
+        // dto.setLanguage(publication.getLanguage());
+        // dto.setPublished_date(publication.getPublishedDate());
+        // dto.setSource(publication.getSource());
+        dto.setTitle(publication.getTitle());
+        return dto;
+    }
+
+    public List<ViewEachPublicationDTO> getPublicationsByTitle(String title) {
+        List<Publications> results = publicationRepository.findByTitle(title);
+        return results.stream().map(this::convertToViewEachPublicationDTO).collect(Collectors.toList());
+    }
+
+    private ViewEachPublicationDTO convertToViewEachPublicationDTO(Publications publication) {
+        ViewEachPublicationDTO dto = new ViewEachPublicationDTO();
+        dto.setAuthor(publication.getAuthor());
         dto.setCategory(publication.getCategory());
         dto.setCountry(publication.getCountry());
-        // dto.setData(publication.getData());
+        byte[] decompressedData = DataUtils.decompressData(publication.getData());
+        String base64Data = Base64.getEncoder().encodeToString(decompressedData);
+        dto.setData(base64Data);
         dto.setDescription(publication.getDescription());
         dto.setLanguage(publication.getLanguage());
         dto.setPublished_date(publication.getPublishedDate());
