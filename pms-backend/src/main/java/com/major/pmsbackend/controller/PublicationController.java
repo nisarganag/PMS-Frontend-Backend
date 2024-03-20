@@ -52,7 +52,7 @@ public class PublicationController {
         return publicationService.getPublicationsByUserId(userId);
     }
 
-    @GetMapping(value="/view/{id}",produces=MediaType.IMAGE_PNG_VALUE)
+    @GetMapping(value="/view/image/{id}",produces=MediaType.IMAGE_PNG_VALUE)
     public byte[] viewFirstPage(@PathVariable Long id) {
         byte[] pdfBytes = pdfService.getPdfBytesById(id); // Fetch PDF blob from database
         return pdfService.extractFirstPage(pdfBytes); // Extract and return first page as PNG
