@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.major.pmsbackend.dto.PublicationDTO;
+import com.major.pmsbackend.dto.SearchDTO;
 import com.major.pmsbackend.entity.Publications;
 import com.major.pmsbackend.entity.Users;
 import com.major.pmsbackend.repository.PublicationRepository;
@@ -49,7 +50,7 @@ public class PublicationService {
                 .country(publication.getCountry())
                 .source(publication.getSource())
                 .author(publication.getAuthor())
-                .publishedData(publication.getPublishedData())
+                .publishedDate(publication.getPublishedDate())
                 .user(publication.getUser())
                 .data(DataUtils.compressData(file.getBytes()))
                 .build());
@@ -84,7 +85,7 @@ public class PublicationService {
         dto.setCountry(publication.getCountry());
         dto.setSource(publication.getSource());
         dto.setAuthor(publication.getAuthor());
-        dto.setPublishedData(publication.getPublishedData());
+        dto.setPublishedDate(publication.getPublishedDate());
         // if (publication.getData() != null) {
         // dto.setData(DataUtils.decompressData(publication.getData()));
         // } else {
@@ -98,22 +99,43 @@ public class PublicationService {
     public void deletePublication(Long id) {
         publicationRepository.deleteById(id);
     }
+
     @SuppressWarnings("null")
     public void updatePublication(Long id, Publications updatedPublication) {
-    Optional<Publications> optionalPublication = publicationRepository.findById(id);
-    if (optionalPublication.isPresent()) {
-        Publications publication = optionalPublication.get();
-        publication.setTitle(updatedPublication.getTitle());
-        publication.setAuthor(updatedPublication.getAuthor());
-        publication.setCategory(updatedPublication.getCategory());
-        publication.setCountry(updatedPublication.getCountry());
-        publication.setDescription(updatedPublication.getDescription());
-        publication.setLanguage(updatedPublication.getLanguage());
-        publication.setPublishedData(updatedPublication.getPublishedData());
-        publication.setSource(updatedPublication.getSource());
-        publicationRepository.save(publication);
-    } else {
-        throw new NoSuchElementException("No publication found with id " + id);
+        Optional<Publications> optionalPublication = publicationRepository.findById(id);
+        if (optionalPublication.isPresent()) {
+            Publications publication = optionalPublication.get();
+            publication.setTitle(updatedPublication.getTitle());
+            publication.setAuthor(updatedPublication.getAuthor());
+            publication.setCategory(updatedPublication.getCategory());
+            publication.setCountry(updatedPublication.getCountry());
+            publication.setDescription(updatedPublication.getDescription());
+            publication.setLanguage(updatedPublication.getLanguage());
+            publication.setPublishedDate(updatedPublication.getPublishedDate());
+            publication.setSource(updatedPublication.getSource());
+            publicationRepository.save(publication);
+        } else {
+            throw new NoSuchElementException("No publication found with id " + id);
+        }
+
     }
-}
+
+    public List<SearchDTO> searchPublications(String partialTitle) {
+        List<Publications> results = publicationRepository.findByTitleStartingWithIgnoreCase(partialTitle);
+        return results.stream().map(this::convertToSearchDTO).collect(Collectors.toList());
+    }
+
+    private SearchDTO convertToSearchDTO(Publications publication) {
+        SearchDTO dto = new SearchDTO();
+        dto.setAuthor(publication.getAuthor());
+        dto.setCategory(publication.getCategory());
+        dto.setCountry(publication.getCountry());
+        // dto.setData(publication.getData());
+        dto.setDescription(publication.getDescription());
+        dto.setLanguage(publication.getLanguage());
+        dto.setPublished_date(publication.getPublishedDate());
+        dto.setSource(publication.getSource());
+        dto.setTitle(publication.getTitle());
+        return dto;
+    }
 }

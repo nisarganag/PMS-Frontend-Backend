@@ -102,10 +102,6 @@
 			<artifactId>jbig2-imageio</artifactId>
 			<version>3.0.4</version>
 		</dependency>
-
-
-
-
 	</dependencies>
 
 	<build>

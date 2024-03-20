@@ -33,6 +33,7 @@ public class SecurityConfiguration extends SecurityConfigurerAdapter <DefaultSec
                         .requestMatchers("/api/v1/publications/all/**").permitAll()
                         .requestMatchers("/api/v1/publications/download/**").permitAll()
                         .requestMatchers("/api/v1/publications/view/**").permitAll()
+                        .requestMatchers("/api/v1/publications/search/**").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(management -> management
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
