@@ -9,8 +9,9 @@ function Home() {
     <div className='homePage'>
 
         <div className='search_bar'>
-            <Searchbar />
-            <SearchResults />
+          <h1 className='homepage-main-text'> Scholar Hub</h1>
+          <Searchbar />
+          <SearchResults />
         </div>
     </div>
     

@@ -16,7 +16,7 @@ body {
     padding: 30px;
     border: 3px solid #959595;
     border-radius: 8px;
-    box-shadow: 0px 10px 300px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 11px 0px rgba(95, 95, 95, 1);
     align-items: left;
   }
   
@@ -37,6 +37,9 @@ body {
     text-align: center;
   }
   
+  .profile-detail{
+    display: flex;
+  }
   label {
     display: block;
     font-weight: bold;

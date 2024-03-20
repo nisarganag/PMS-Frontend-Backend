@@ -8,7 +8,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    
+  
   }
   
   .auth-form {
@@ -17,7 +17,7 @@
     border: 3px solid #959595;
     border-radius: 8px;
     background-color: none;
-    box-shadow: 0px 10px 300px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 11px 0px rgba(95, 95, 95, 1);
   }
   
   .auth-form h2 {
