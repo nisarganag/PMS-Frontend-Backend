@@ -2,7 +2,7 @@ import './Home.css';
 import Searchbar from './Searchbar';
 import SearchResults from './SearchResults';
 import logo from './Screenshot_2024-03-20_202235.png';
-import darkLogo from './Screenshot_2024-03-20_202252 (1).png'; // Replace with the path to your dark mode logo
+import darkLogo from './Screenshot_2024-03-20_202252.png'; // Replace with the path to your dark mode logo
 interface HomeProps {
   isDarkMode: boolean;
 }
