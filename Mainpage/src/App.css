@@ -30,17 +30,27 @@
     background-color: #ffffff;
     color: #000000;
   }
+
+  .light-mode{
+    background-color: #ffffff;
+    color: #000000;
+  }
+
+  .light-mode .routes {
+    color: #000000; /* Black color for text */
+    background-color: #ffffff; /* White background color */
+  }
   
   /* Dark mode styles */
   .dark-mode {
-    background-color: #1e1e1e;
+    background-color: #101111;
     color: #ffffff;
   }
   
   /* Dark mode styles for center page content */
   .dark-mode .routes {
     color: #ffffff; /* White color for text */
-    background-color: #1e1e1e; /* Dark background color */
+    background-color: #101111; /* Dark background color */
   }
   
   /* Styles for main content area */
@@ -52,7 +62,7 @@
   /* Styles for sidebar */
   .sidebar {
     width: 200px;
-    background-color: #333; /* Dark background color for sidebar */
+    background-color: #000000; /* Dark background color for sidebar */
     color: #fff; /* White color for text in sidebar */
   }
   
@@ -64,7 +74,7 @@
 
   .DropDownprofile{
       width: 200px;
-      background-color: #333; /* Dark background color for sidebar */
+      background-color: #000000; /* Dark background color for sidebar */
       color: #fff;
   }
   

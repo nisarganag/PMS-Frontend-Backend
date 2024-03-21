@@ -22,5 +22,9 @@
 
 .page-logo{
     filter: drop-shadow();
+    position: relative;
+    top: -40px;
+    left : -10px;
+
 }
 

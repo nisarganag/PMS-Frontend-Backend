@@ -5,7 +5,7 @@
     --first-color: #ffffff;
     --first-color-alt: #c4b0b0;
     --white-color: #626262e9;
-    --dark-background: #1e1e1e;
+    --dark-background: #000000;
     --dark-text-color: #ffffff;
     --highlight-color: #cccccc; /* Light gray for highlight */
 }
@@ -47,7 +47,20 @@ main {
     padding: 0 1rem;
     transition: .5s;
 }
+.dark-mode {
+    --first-color: var(--dark-background);
+    --white-color: var(--dark-text-color);
+    --highlight-color: #444444; 
 
+    .header {
+        background-color: #101111; /* Set the background color to dark */
+        color: var(--dark-text-color); /* Set the text color to light */
+    }
+
+    .sidebar {
+        background-color: #101111; /* Set the background color to black */
+    }
+}
 .header-toggle {
     font-size: 1.25rem;
     cursor: pointer;
@@ -172,7 +185,10 @@ main {
 .dark-mode {
     --first-color: var(--dark-background);
     --white-color: var(--dark-text-color);
-    --highlight-color: #444444; /* Dark gray for highlight in dark mode */
+    --highlight-color: #444444; 
+    .sidebar {
+        background-color: #101111; /* Set the background color to black */
+    }/* Dark gray for highlight in dark mode */
 }
 
 .userLogo{

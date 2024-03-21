@@ -25,7 +25,7 @@ function App() {
 
   return (
     <>
-      <div className={`App ${isDarkMode ? 'dark-mode' : ''}`}>
+      <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
         <button className="mode-toggle" onClick={toggleMode} >
           {isDarkMode ? <FaSun className="sun-icon" /> : <FaMoon className="moon-icon" />}
         </button>
@@ -35,14 +35,14 @@ function App() {
           <Sidebar />
           <div className="routes">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
               <Route path="/My_profile" element={<My_profile />} />
               <Route path="/Advanced_search" element={<Advanced_search />} />
               <Route path="/Metrices" element={<Metrices />} />
               <Route path="/My_library" element={<My_library />} />
               <Route path="/Settings" element={<Settings />} />
               <Route path="/Alerts" element={<Alerts />} />
-              <Route path="/Home" element={<Home />} />
+              <Route path="/Home" element={<Home isDarkMode={isDarkMode} />} />
               <Route path="/Login" element={<Login />} />
             </Routes>
           </div>
