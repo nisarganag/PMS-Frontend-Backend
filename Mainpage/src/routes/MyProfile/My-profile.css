@@ -1,5 +1,20 @@
+:root {
+  --header-height: 3rem;
+  --nav-width: 50px;
 
+  --first-color: #ffffff;
+  --first-color-alt: #c4b0b0;
+  --white-color: #626262e9;
+  --dark-background: #1e1e1e;
+  --dark-text-color: #ffffff;
+  --highlight-color: #cccccc; /* Light gray for highlight */
+}
 
+.dark-mode {
+  --first-color: var(--dark-background);
+  --white-color: var(--dark-text-color);
+  --highlight-color: #444444; /* Dark gray for highlight in dark mode */
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -77,6 +92,7 @@ body {
     outline: none;
     transition: background-color 0.3s ease;
     width: 28px;
+    color: var(--white-color);
   }
 
   .edit-button {
@@ -91,9 +107,14 @@ body {
     outline: none;
     transition: background-color 0.3s ease;
     width: 28px;
-    
+    color: var(--white-color);
   }
   
+  .button-icon{
+    color: var(--white-color);
+  }
+
+
   .edit-button:hover {
     background-color: none;
     cursor:pointer ;
@@ -117,6 +138,69 @@ body {
     }
   }
 
+  .edit-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(90, 90, 90);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none !important;
+  }
+  
+  .edit-svgIcon {
+    width: 17px;
+    transition-duration: 0.3s;
+  }
+  
+  .edit-svgIcon path {
+    fill: white;
+  }
+  
+  .edit-button:hover {
+    width: 120px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
+  }
+  
+  .edit-button:hover .edit-svgIcon {
+    width: 20px;
+    transition-duration: 0.3s;
+    transform: translateY(60%);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  
+  .edit-button::before {
+    display: none;
+    content: "Edit";
+    color: white;
+    transition-duration: 0.3s;
+    font-size: 2px;
+  }
+  
+  .edit-button:hover::before {
+    display: block;
+    padding-right: 10px;
+    font-size: 13px;
+    opacity: 1;
+    transform: translateY(0px);
+    transition-duration: 0.3s;
+  }
+  
 
 
   

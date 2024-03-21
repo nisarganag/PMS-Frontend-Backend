@@ -65,8 +65,8 @@ const Login = ({ onToggle }: { onToggle: () => void }) => {
             required
           />
         </div>
-        <button className='auth_button' type="submit">Login</button>
-        <p className="toggle-text">Don't have an account? <button className="toggle-button" onClick={onToggle}>Sign Up</button></p>
+        <a href="/" className="bn5">Login</a>
+        <p className="toggle-text"> Don't have an account? <button className="toggle-button" onClick={onToggle}>Sign Up</button></p>
       </form>
     </div>
   );
@@ -147,7 +147,7 @@ const SignupPage = ({ onToggle }: { onToggle: () => void }) => {
             required
           />
         </div>
-        <button className='auth_button' type="submit">Sign Up</button>
+        <a href="/" className="bn5" type='submit'>Sign Up</a>
         <p className="toggle-text">Already have an account? <button className="toggle-button" onClick={onToggle}>Login</button></p>
       </form>
     </div>

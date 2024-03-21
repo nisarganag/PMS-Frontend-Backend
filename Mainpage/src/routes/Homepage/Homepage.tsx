@@ -1,7 +1,7 @@
 import './Home.css';
 import Searchbar from './Searchbar';
 import SearchResults from './SearchResults';
-
+import logo from './Screenshot_2024-03-20_202235.png'
 function Home() {
   
 
@@ -9,7 +9,9 @@ function Home() {
     <div className='homePage'>
 
         <div className='search_bar'>
-          <h1 className='homepage-main-text'> Scholar Hub</h1>
+          <div className='page-logo'> 
+            <img src={logo} alt='Page Logo' height={200} width={500} />
+          </div>
           <Searchbar />
           <SearchResults />
         </div>

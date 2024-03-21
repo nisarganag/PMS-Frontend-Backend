@@ -2,6 +2,7 @@
     background-color: none;
     height: 100vh;
     width: 100vw;
+    margin-left: -80px;
 }
 
 .search_bar{
@@ -12,11 +13,14 @@
     flex-direction: column;
     align-items: center;
     min-width: 200px;
-    
 }
 
 .homepage-main-text{
     
     text-shadow: 0px 5px 10px rgba(87, 87, 87, 0.74);
+}
+
+.page-logo{
+    filter: drop-shadow();
 }
 
