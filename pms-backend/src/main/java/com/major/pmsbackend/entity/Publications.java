@@ -15,6 +15,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.Date;
 
 @Data
 @Builder
@@ -26,17 +27,20 @@ public class Publications {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String title;
+    @Column(length = 500)
     private String description;
+    @Column(length = 50)
     private String category;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 50)
     private String language;
+    @Column(length = 50)
     private String country;
     private String source;
     @Column(nullable = false)
     private String author;
-    private String publishedData;
+    private Date publishedDate;
     @Lob
     @Column(name="data",columnDefinition="LONGBLOB")
     private byte[] data;
