@@ -76,5 +76,6 @@
       width: 200px;
       background-color: #000000; /* Dark background color for sidebar */
       color: #fff;
+      z-index: 10;
   }
   
