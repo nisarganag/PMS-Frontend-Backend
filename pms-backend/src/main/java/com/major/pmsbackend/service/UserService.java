@@ -19,16 +19,30 @@ public class UserService {
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
+    @SuppressWarnings("null")
     public void updateUser(Long id, Users updatedUser) {
-        @SuppressWarnings("null")
         Users user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("User not found for id: " + id));
-        user.setFirstName(updatedUser.getFirstName());
-        user.setLastName(updatedUser.getLastName());
-        user.setEmail(updatedUser.getEmail());
-        user.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
-        user.setPhone(updatedUser.getPhone());
-        user.setGender(updatedUser.getGender());
+    
+        if (updatedUser.getFirstName() != null) {
+            user.setFirstName(updatedUser.getFirstName());
+        }
+        if (updatedUser.getLastName() != null) {
+            user.setLastName(updatedUser.getLastName());
+        }
+        if (updatedUser.getEmail() != null) {
+            user.setEmail(updatedUser.getEmail());
+        }
+        if (updatedUser.getPassword() != null) {
+            user.setPassword(passwordEncoder.encode(updatedUser.getPassword()));
+        }
+        if (updatedUser.getPhone() != null) {
+            user.setPhone(updatedUser.getPhone());
+        }
+        if (updatedUser.getGender() != null) {
+            user.setGender(updatedUser.getGender());
+        }
+    
         userRepository.save(user);
     }
 }
