@@ -1,3 +1,13 @@
+:root{
+    --light-image: url(./Screenshot_2024-03-20_202235.png)  no-repeat;
+    --dark-image: url(./Screenshot_2024-03-20_202252.png) no-repeat;
+}
+
+.dark-mode {
+    --light-image: var(--dark-image);
+  }
+
+ 
 .homePage{
     background-color: none;
     height: 100vh;
@@ -15,17 +25,13 @@
     min-width: 200px;
 }
 
-.homepage-main-text{
-    
-    text-shadow: 0px 5px 10px rgba(87, 87, 87, 0.74);
-}
 
 .page-logo{
-    filter: drop-shadow();
-    position: relative;
-    top: -40px;
-    left : -10px;
-    z-index: 0;
-
+    display: inline-block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 60px ;
+    margin-left: -20px;
+    background-size: 600px;
+    vertical-align: bottom;
 }
-
