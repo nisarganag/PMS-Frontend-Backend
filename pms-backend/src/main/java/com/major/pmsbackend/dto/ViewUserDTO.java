@@ -1,4 +1,4 @@
-package com.major.pmsbackend.controller;
+package com.major.pmsbackend.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,14 +7,13 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class RegisterRequest {
+@AllArgsConstructor
+public class ViewUserDTO {
+    private String email;
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
     private String phone;
     private String gender;
-    
+    private String photo;
 }

@@ -2,10 +2,17 @@ package com.major.pmsbackend.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.major.pmsbackend.dto.ViewUserDTO;
 import com.major.pmsbackend.service.AuthenticationService;
+import com.major.pmsbackend.service.UserService;
+
 import lombok.RequiredArgsConstructor;
 
+import java.nio.file.AccessDeniedException;
+
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class AuthenticationController {
     private final AuthenticationService service;
+    private final UserService userService;
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request){
         return ResponseEntity.ok(service.register(request));
@@ -24,5 +32,14 @@ public class AuthenticationController {
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
         return ResponseEntity.ok(service.authenticate(request));
+    }
+    @GetMapping("/view/{userId}")
+    public ResponseEntity<ViewUserDTO> getUserById(@PathVariable Long userId) throws AccessDeniedException {
+        ViewUserDTO user = userService.getUserById(userId);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(user);
+        }
     }
 }

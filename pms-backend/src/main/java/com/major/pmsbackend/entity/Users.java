@@ -45,6 +45,8 @@ public class Users implements UserDetails{
     private String lastName;
     private String phone;
     private String gender;
+    @Column(name="photo",columnDefinition="LONGBLOB")
+    private byte[] photo;
     
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonManagedReference
