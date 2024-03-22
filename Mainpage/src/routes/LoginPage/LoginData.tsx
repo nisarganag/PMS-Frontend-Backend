@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import axios from 'axios'; // Import Axios library
 import './LoginData.css';
-
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onToggle }: { onToggle: () => void }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [, setMessage] = useState(''); // Add this line
 
+
+  const navigate = useNavigate ();
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     
     e.preventDefault();
@@ -21,18 +23,11 @@ const Login = ({ onToggle }: { onToggle: () => void }) => {
   
       // Store the token in local storage
       localStorage.setItem('token', token);
+      if (token) {
+        navigate("/");
+      }else{}
       
-  
-      // Fetch the message from the server
-      const response2 = await axios.get('http://localhost:8080/api/v1/demo-controller', {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-  
-      // Set the message
-      setMessage(response2.data);
-      console.log(response2.data +" "+ email); // Add this line
+      
     } catch (error) {
       console.error('Login failed:', error);
       // console.log('Error details:', error.response.data); // Handle login failure
@@ -65,7 +60,7 @@ const Login = ({ onToggle }: { onToggle: () => void }) => {
             required
           />
         </div>
-        <a href="/" className="bn5">Login</a>
+        <a className ="bn5" type='submit'>Login</a>
         <p className="toggle-text"> Don't have an account? <button className="toggle-button" onClick={onToggle}>Sign Up</button></p>
       </form>
     </div>
@@ -147,7 +142,7 @@ const SignupPage = ({ onToggle }: { onToggle: () => void }) => {
             required
           />
         </div>
-        <a href="/" className="bn5" type='submit'>Sign Up</a>
+        <a  className="bn5" type='submit'>Sign Up</a>
         <p className="toggle-text">Already have an account? <button className="toggle-button" onClick={onToggle}>Login</button></p>
       </form>
     </div>
