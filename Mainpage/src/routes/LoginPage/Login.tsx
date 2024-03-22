@@ -5,8 +5,8 @@ import './Login.css'
 const LoginMain = () => {
   return (
     <div className='container-design'>
-      <div>
-        <h1>Hello there,</h1>
+      <div className='login-message'>
+        <h1>  Hello there, How you doing </h1>
       </div>
       <Login/>
     </div>
