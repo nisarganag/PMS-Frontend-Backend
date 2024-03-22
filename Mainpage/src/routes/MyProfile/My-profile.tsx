@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { FaEdit } from "react-icons/fa";
 import { FaSave } from "react-icons/fa";
 import "./My-profile.css";
 
