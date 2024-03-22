@@ -28,8 +28,13 @@ public class AuthenticationService {
             .lastName(request.getLastName())
             .email(request.getEmail())
             .password(passwordEncoder.encode(request.getPassword()))
+            .phone(request.getPhone())
+            .gender(request.getGender())
             .role(Role.USER)
             .build();
+            if(repository.findByEmail(request.getEmail()).isPresent()) {
+                throw new RuntimeException("Email already exists.");
+            }
             if (user != null) {
                 repository.save(user);
             } else {
