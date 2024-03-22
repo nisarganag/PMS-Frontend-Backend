@@ -41,7 +41,7 @@ body {
   }
   
   .form-group-profile {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
   
@@ -200,7 +200,3 @@ body {
     transform: translateY(0px);
     transition-duration: 0.3s;
   }
-  
-
-
-  

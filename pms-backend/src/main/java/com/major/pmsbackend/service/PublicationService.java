@@ -107,20 +107,38 @@ public class PublicationService {
         Optional<Publications> optionalPublication = publicationRepository.findById(id);
         if (optionalPublication.isPresent()) {
             Publications publication = optionalPublication.get();
-            publication.setTitle(updatedPublication.getTitle());
-            publication.setAuthor(updatedPublication.getAuthor());
-            publication.setCategory(updatedPublication.getCategory());
-            publication.setCountry(updatedPublication.getCountry());
-            publication.setDescription(updatedPublication.getDescription());
-            publication.setLanguage(updatedPublication.getLanguage());
-            publication.setPublishedDate(updatedPublication.getPublishedDate());
-            publication.setSource(updatedPublication.getSource());
+    
+            if (updatedPublication.getTitle() != null) {
+                publication.setTitle(updatedPublication.getTitle());
+            }
+            if (updatedPublication.getAuthor() != null) {
+                publication.setAuthor(updatedPublication.getAuthor());
+            }
+            if (updatedPublication.getCategory() != null) {
+                publication.setCategory(updatedPublication.getCategory());
+            }
+            if (updatedPublication.getCountry() != null) {
+                publication.setCountry(updatedPublication.getCountry());
+            }
+            if (updatedPublication.getDescription() != null) {
+                publication.setDescription(updatedPublication.getDescription());
+            }
+            if (updatedPublication.getLanguage() != null) {
+                publication.setLanguage(updatedPublication.getLanguage());
+            }
+            if (updatedPublication.getPublishedDate() != null) {
+                publication.setPublishedDate(updatedPublication.getPublishedDate());
+            }
+            if (updatedPublication.getSource() != null) {
+                publication.setSource(updatedPublication.getSource());
+            }
+    
             publicationRepository.save(publication);
         } else {
             throw new NoSuchElementException("No publication found with id " + id);
         }
-
     }
+    
 
     public List<SearchDTO> searchPublications(String partialTitle) {
         List<Publications> results = publicationRepository.findByTitleStartingWithIgnoreCase(partialTitle);
