@@ -1,9 +1,10 @@
 :root{
-    --s: 200px; /* control the size */
-    --c1: #414141;
+    --s: 180px; /* control the size */
+    --c1: #8985ff;
     --c2: #bebebe;
-    --c3: #ffffff;
-    
+    --c3: #ffe6e6;
+    --header-height: 3rem;
+    --nav-width: 50px;
 }
 
 .dark-mode {
@@ -14,15 +15,16 @@
 
 
 .container-design {
-    width: 90%;
+    width: 95%;
     height: 90%;
-    margin: 20px;
+    margin: 1vh;
     border: 5px solid var(--c2);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
     border-radius: 10px;
+    gap: 10vh;
 
   
     --_g: 0 120deg, #0000 0;
@@ -64,7 +66,7 @@
   .login-message{
     -webkit-animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: focus-in-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-    text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+    text-shadow: 0px 0px 6px rgb(130, 130, 130);
 
   }
 
@@ -94,3 +96,17 @@
     opacity: 1;
   }
 }
+
+
+@media screen and (max-width: 768px) {
+  .container-design{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-design {
+    width: 95%;
+    height: 100%;
+  }
+  
+} 

@@ -63,18 +63,20 @@ body {
     text-align: left;
   }
   
-  input[type="text"],
+  input[type="firstname"],
+  input[type="lastname"],
   input[type="email"],
   input[type="tel"] {
-    width: calc(100% - 20px);
-    padding: 12px;
+    width: calc(100% - 40px);
+    padding: 6px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     outline: none;
     transition: border-color 0.3s ease;
   }
   
-  input[type="text"]:read-only,
+  input[type="firstname"]:read-only,
+  input[type="lastname"]:read-only,
   input[type="email"]:read-only,
   input[type="tel"]:read-only {
     background-color: #f9f9f9;
@@ -130,17 +132,11 @@ body {
       padding: 20px;
       
     }
-  
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"] {
-      width: 100%;
-    }
   }
 
   .edit-button {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 26px;
     border-radius: 50%;
     background-color: rgb(90, 90, 90);
     border: none;
@@ -157,7 +153,7 @@ body {
   }
   
   .edit-svgIcon {
-    width: 17px;
+    width: 14px;
     transition-duration: 0.3s;
   }
   
@@ -174,7 +170,7 @@ body {
   }
   
   .edit-button:hover .edit-svgIcon {
-    width: 20px;
+    width: 17px;
     transition-duration: 0.3s;
     transform: translateY(60%);
     -webkit-transform: rotate(360deg);
@@ -199,4 +195,8 @@ body {
     opacity: 1;
     transform: translateY(0px);
     transition-duration: 0.3s;
+  }
+
+  input[type="email"]{
+    width: calc(100% - 38px);
   }
