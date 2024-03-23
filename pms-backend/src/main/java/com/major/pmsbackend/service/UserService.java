@@ -60,17 +60,16 @@ public class UserService {
         userRepository.save(user);
     }
 
-    @SuppressWarnings("null")
-    public ViewUserDTO getUserById(Long id) throws AccessDeniedException {
+    public ViewUserDTO getUserByEmail(String email) throws AccessDeniedException {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String currentPrincipalName = authentication.getName();
-        Users user= userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found for id: " + id));
+        Users user= userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("User not found for email: " + email));
         // Assuming that the principal name is the user ID. If it's not, you need to
         // adjust this code.
         if (!currentPrincipalName.equals(user.getEmail())) {
             throw new AccessDeniedException("You are not authorized to view this user's details.");
         }
-        Optional<Users> results = userRepository.findById(id);
+        Optional<Users> results = userRepository.findByEmail(email);
         return results.map(this::convertToViewUserDTO).orElse(null);
     }
 
@@ -81,9 +80,11 @@ public class UserService {
         dto.setLastName(user.getLastName());
         dto.setGender(user.getGender());
         dto.setPhone(user.getPhone());
-        byte[] decompressedData = DataUtils.decompressData(user.getPhoto());
-        String base64Data = Base64.getEncoder().encodeToString(decompressedData);
-        dto.setPhoto(base64Data);
+        if (user.getPhoto() != null) {
+            byte[] decompressedPhoto = DataUtils.decompressData(user.getPhoto());
+            String base64Data = Base64.getEncoder().encodeToString(decompressedPhoto);
+            dto.setPhoto(base64Data);
+        }
         return dto;
     }
 }

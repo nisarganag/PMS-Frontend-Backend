@@ -12,12 +12,10 @@ import java.nio.file.AccessDeniedException;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -25,17 +23,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AuthenticationController {
     private final AuthenticationService service;
     private final UserService userService;
+
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request){
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(service.register(request));
     }
+
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(service.authenticate(request));
     }
-    @GetMapping("/view/{userId}")
-    public ResponseEntity<ViewUserDTO> getUserById(@PathVariable Long userId) throws AccessDeniedException {
-        ViewUserDTO user = userService.getUserById(userId);
+
+    @GetMapping("/view")
+    public ResponseEntity<ViewUserDTO> getUserByEmail(@RequestParam String email) throws AccessDeniedException {
+        ViewUserDTO user = userService.getUserByEmail(email);
         if (user == null) {
             return ResponseEntity.notFound().build();
         } else {
