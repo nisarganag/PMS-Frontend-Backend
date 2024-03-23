@@ -141,7 +141,7 @@ const SignupPage = ({ onToggle }: { onToggle: () => void }) => {
             required
           />
         </div>
-        <a  className="bn5" type='submit'>Sign Up</a>
+        <a className="bn5" type='submit'>Sign Up</a>
         <p className="toggle-text">Already have an account? <button className="toggle-button" onClick={onToggle}>Login</button></p>
       </form>
     </div>

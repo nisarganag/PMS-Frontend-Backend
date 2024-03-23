@@ -18,7 +18,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.5s;
   }
   
   .auth-form {
@@ -27,22 +26,22 @@
     border: 3px solid #959595;
     border-radius: 8px;
     background-color: none;
-    box-shadow: inset 2px 2px 10px rgba(0,0,0,1),
+    box-shadow: inset 2px 2px 10px var(--first-color),
     inset -1px -1px 5px rgba(255, 255, 255, 0.6);
     background-color: var(--first-color);
     margin-left: 20%;
-    transition: 0.3s;
+    
   }
   
   .auth-form h2 {
     margin-bottom: 20px;
     text-align: center;
-    transition: 0.3s;
+    
   }
   
   .form-group {
     margin-bottom: 20px;
-    transition: 0.3s;
+    
   }
   
   label {
@@ -66,7 +65,6 @@
     color: rgb(132, 132, 132);
     outline-color: rgb(186, 186, 186);
     box-shadow: -3px 0px 15px rgb(148, 148, 148);
-    transition: .1s;
     transition-property: box-shadow;
   }
 
@@ -80,7 +78,7 @@
     color: #fff;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    
     
 
   }
@@ -101,7 +99,7 @@
     color: #7d7d7d;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
+    
     
   }
   
@@ -117,7 +115,7 @@
     border: none;
     outline: none;
     color: rgb(255, 255, 255);
-    background: #7a7a7a;
+    background-color: #7a7a7a;
     cursor: pointer;
     position: relative;
     z-index: 0;

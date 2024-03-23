@@ -1,8 +1,8 @@
 :root{
     --s: 180px; /* control the size */
-    --c1: #8985ff;
-    --c2: #bebebe;
-    --c3: #ffe6e6;
+    --c1: #81c8bf;
+    --c2: #284543;
+    --c3: #faf9f6;
     --header-height: 3rem;
     --nav-width: 50px;
 }

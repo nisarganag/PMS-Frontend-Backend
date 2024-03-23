@@ -1,12 +1,12 @@
 import React from 'react'
 import './SearchResults.css'
-
+//TODO: only popup when typing  
 // const Results = ({ result}) => {
 //   return (
 //     <div>
 //       {result.name}
 //     </div>
-//   )
+//   ) 
 // }
 
 

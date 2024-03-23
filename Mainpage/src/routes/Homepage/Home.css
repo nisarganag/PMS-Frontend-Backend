@@ -5,6 +5,11 @@
 
 .dark-mode {
     --light-image: var(--dark-image);
+    .page-logo{
+        mix-blend-mode:lighten ;
+    }
+
+
   }
 
  
@@ -31,7 +36,10 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin-bottom: 60px ;
-    margin-left: -20px;
+    margin-left: 10px;
     background-size: 600px;
     vertical-align: bottom;
+    width: 80vh;
+    transition: 0.3s;
+    mix-blend-mode: darken;
 }

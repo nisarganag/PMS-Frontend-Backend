@@ -12,8 +12,8 @@ function Home({ isDarkMode }: HomeProps) {
   return (
     <div className='homePage'>
       <div className='search_bar'>
-        <div className='page-logo'> 
-          <img src={currentLogo} alt='Page Logo' height={78} width={621} />
+        <div > 
+          <img className='page-logo' src={currentLogo} alt='Page Logo' height={78} />
         </div>
         <Searchbar />
         <SearchResults />
