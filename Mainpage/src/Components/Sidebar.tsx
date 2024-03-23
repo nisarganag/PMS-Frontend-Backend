@@ -9,6 +9,9 @@ import { IoMdSettings } from "react-icons/io";
 import { FaHome } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
+import { IoMdHelp } from "react-icons/io";
+import { RiAccountPinCircleLine } from "react-icons/ri";
+import { IoLogOut } from "react-icons/io5";
 import './Sidebar.css'; 
 const DropDownProfile = () => {
     const [showDropdown, setShowDropdown] = useState(false);
@@ -35,10 +38,21 @@ const DropDownProfile = () => {
                 </Link>
             </button>
             {showDropdown && (
-                <div className="dropdown-content ">
-                    <a href={isLoggedIn() ? "/My_profile" : "/login"}>Account</a>
-                    <a href="#">Help & Info</a>
-                    <a onClick={logout}>Logout</a>
+                <div className="input ">
+                    
+                    <a href={isLoggedIn() ? "/My_profile" : "/login"} className="value" >
+                    <RiAccountPinCircleLine className='drop-logo-icon' />
+                        Account           
+                    </a>
+                    <a className="value">
+                        <IoMdHelp className='drop-logo-icon'/>
+                        Help & Info
+                    </a>
+                    <a className="value" onClick={logout}>
+                    <IoLogOut className='drop-logo-icon' />
+                        Log Out
+                    </a>
+                    
                 </div>
             )}
         </div>

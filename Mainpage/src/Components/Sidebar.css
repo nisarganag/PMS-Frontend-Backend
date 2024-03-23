@@ -7,7 +7,7 @@
     --white-color: #626262e9;
     --dark-background: #000000;
     --dark-text-color: #ffffff;
-    --highlight-color: #cccccc; /* Light gray for highlight */
+    --highlight-color: #595959; /* Light gray for highlight */
 }
 
 * {
@@ -50,7 +50,7 @@ main {
 .dark-mode {
     --first-color: var(--dark-background);
     --white-color: var(--dark-text-color);
-    --highlight-color: #444444; 
+    --highlight-color: #ffffff; 
 
     .header {
         background-color: #101111; /* Set the background color to dark */
@@ -281,7 +281,7 @@ main {
     flex-direction: column;
     position: absolute;
     min-width: 160px;
-    background-color: #0D1117;
+    background-color: var(--white-color);
     left: -110px;
     border-radius: 5px;
     z-index: 0;
@@ -289,19 +289,20 @@ main {
   
   .value {
     background-color: transparent;
-    border: none;
     padding: 10px;
-    color: white;
+    color: var(--first-color);
     display: flex;
     position: relative;
     gap: 5px;
-    cursor: pointer;
     border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
   }
   
   .value:not(:active):hover,
   .value:focus {
-    background-color: #21262C;
+    background-color: var(--highlight-color);
   }
   
   .value:focus,
@@ -335,4 +336,11 @@ main {
     transition: 300ms;
     filter: blur(1px);
     transform: scale(0.95,0.95);
+  }
+
+  .drop-logo-icon{
+    margin-top: -4px;
+    font-size: 1.6rem;
+    color: var(--first-color);
+    cursor: pointer;
   }
