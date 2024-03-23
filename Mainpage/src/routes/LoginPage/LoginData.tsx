@@ -6,28 +6,27 @@ import { useNavigate } from 'react-router-dom';
 const Login = ({ onToggle }: { onToggle: () => void }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [, setMessage] = useState(''); // Add this line
 
 
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
-    
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:8080/api/v1/auth/authenticate', {
         email,
         password,
       });
-  
       const token = response.data.token;
+      const emailId= response.data.email;
+      localStorage.setItem('emailId', emailId);
   
       // Store the token in local storage
       localStorage.setItem('token', token);
       if (token) {
         navigate("/");
-      }else{}
-      
-      
+      } else {
+        // console.log('Login Successful'); // Optional: You can handle login success here
+      }
     } catch (error) {
       console.error('Login failed:', error);
       // console.log('Error details:', error.response.data); // Handle login failure
@@ -60,7 +59,7 @@ const Login = ({ onToggle }: { onToggle: () => void }) => {
             required
           />
         </div>
-        <a className ="bn5" type='submit'>Login</a>
+        <button className ="bn5" type='submit'>Login</button>
         <p className="toggle-text"> Don't have an account? <button className="toggle-button" onClick={onToggle}>Sign Up</button></p>
       </form>
     </div>
