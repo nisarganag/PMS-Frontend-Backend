@@ -10,26 +10,35 @@ import { FaHome } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { FaRegUser } from "react-icons/fa";
 import './Sidebar.css'; 
-
 const DropDownProfile = () => {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const toggleDropdown = () => {
       setShowDropdown(!showDropdown);
     };
-
+    const logout = () => {
+        localStorage.removeItem('token');
+        localStorage.removeItem('emailId');
+        window.location.href = '/login';
+    }
+    const isLoggedIn = () => {
+        const token = localStorage.getItem('token');
+        const emailId = localStorage.getItem('emailId');
+    
+        return token !== null || emailId !== null;
+    }
     return(
         <div className={"dropdown"}  onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown } >
             <button className="dropbtn">
-                <Link to="Login" className="userLogo">
+                <Link to={isLoggedIn() ? "/My_profile" : "/Login"} className="userLogo">
                     <FaRegUser />
                 </Link>
             </button>
             {showDropdown && (
                 <div className="dropdown-content ">
-                    <a href="login">Account</a>
+                    <a href={isLoggedIn() ? "/My_profile" : "/login"}>Account</a>
                     <a href="#">Help & Info</a>
-                    <a href="#">Logout</a>
+                    <a onClick={logout}>Logout</a>
                 </div>
             )}
         </div>
