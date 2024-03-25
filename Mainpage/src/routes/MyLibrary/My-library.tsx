@@ -6,6 +6,7 @@ interface CardData {
   id: number;
   title: string;
   description: string;
+  body: string;
 }
 const Home = () => {
   const [card, setCard] = useState<CardData[]>([]);

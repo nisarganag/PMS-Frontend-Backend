@@ -1,6 +1,12 @@
-import React from "react";
-
-const MovieCard = ({myData}) => {
+interface MovieData {
+  id: number;
+  title: string;
+  body: string;
+}
+interface MovieCardProps {
+  myData: MovieData;
+}
+const MovieCard = ({myData}: MovieCardProps) => {
   const { title, body, id } = myData;
   return (
     <div className="card">
