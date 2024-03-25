@@ -35,7 +35,7 @@ const Searchbar = () => {
     return (
       <div className='input-component'>
           <div className='search-bar'>
-              <input placeholder='Type to Search... ' value={input} onChange={handleChange} />
+              <input type='main-search' placeholder='Type to Search... ' value={input} onChange={handleChange} />
               <FaSearch className='search-icon' onClick={handleSearchClick} />
           </div>
           {(searchResult.length > 0) && (
