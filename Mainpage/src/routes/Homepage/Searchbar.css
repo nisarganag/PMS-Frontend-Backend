@@ -54,4 +54,6 @@ input[type=main-search]:focus {
 }
 .search-result-item {
     margin: 10px 0;
+    align-items: center;
+    text-align: left;
 }
