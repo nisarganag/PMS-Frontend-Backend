@@ -38,6 +38,7 @@ const Searchbar = () => {
               <input placeholder='Type to Search... ' value={input} onChange={handleChange} />
               <FaSearch className='search-icon' onClick={handleSearchClick} />
           </div>
+          {(searchResult.length > 0) && (
           <div className={`search-results ${searchResult.length > 0 ? 'with-results' : ''}`}>
             <ul>
               {searchResult.slice(0,10).map((item: SearchResultItem, index: number) => (
@@ -46,7 +47,7 @@ const Searchbar = () => {
                   </li>
               ))}
               </ul>
-          </div>
+          </div>)}
       </div>
   );
 }
