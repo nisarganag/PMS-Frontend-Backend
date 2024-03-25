@@ -1,4 +1,3 @@
-import React from 'react'
 import './SearchResults.css'
 //TODO: only popup when typing  
 // const Results = ({ result}) => {
@@ -13,12 +12,12 @@ import './SearchResults.css'
 const SearchResults = () => {
   return (
     <div className='result-component'>
-      <div className='result-list'>
+      {/* <div className='result-list'>
         <div>A</div>
         <div>A</div>
         <div>A</div>
         <div>A</div>
-      </div>
+      </div> */}
     </div>
   )
 }
