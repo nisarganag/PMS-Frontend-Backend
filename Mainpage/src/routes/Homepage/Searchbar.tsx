@@ -25,7 +25,7 @@ const searchbar = () => {
 
   return (
     <div className='input-component'>
-        <input placeholder='Type to Search... ' />
+        <input placeholder='Type to Search... ' type='main-search' />
         <FaSearch id='search-icon'/>
 
     </div>

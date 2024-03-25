@@ -8,18 +8,19 @@
     display: flex;
 }
 
-input{
+input[type=main-search]{
     background-color: transparent;
     border: none;
     height: 100%;
     font-size: 1.25rem;
     width: 100%;
     margin-left: 5px;
-
+    box-shadow: none;
 }
 
-input:focus{
+input[type=main-search]:focus{
     outline: none;
+    box-shadow: none;
 }
 
 #search-icon{

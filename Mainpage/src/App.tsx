@@ -9,7 +9,7 @@ import {
 import My_profile from "./routes/MyProfile/My-profile"
 import Advanced_search from './routes/Advances-search';
 import Metrices from './routes/metrices';
-import My_library from './routes/My-library';
+import My_library from './routes/MyLibrary/My-library';
 import Settings from './routes/settings';
 import Alerts from './routes/Alerts';
 import Home from './routes/Homepage/Homepage';
