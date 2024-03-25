@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Loading from "./Loading";
 import MovieComponent from "./MovieComponent";
-
+import "./My-library.css";
+interface CardData {
+  id: number;
+  title: string;
+  description: string;
+}
 const Home = () => {
-  const [card, setCard] = useState([]);
+  const [card, setCard] = useState<CardData[]>([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
