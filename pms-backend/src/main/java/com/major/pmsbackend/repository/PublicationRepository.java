@@ -36,4 +36,6 @@ public interface PublicationRepository extends JpaRepository<Publications, Long>
     List<Publications> findByUserId(Long userId);
     List<Publications> findByTitleStartingWithIgnoreCase(String title);
     List<Publications> findByAuthorStartingWithIgnoreCase(String category);
+    List<Publications> findByTitleContainingIgnoreCase(String title);
+    List<Publications> findByAuthorContainingIgnoreCase(String author);
 }

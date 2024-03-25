@@ -1,9 +1,11 @@
 package com.major.pmsbackend.service;
 
 import java.util.Base64;
+import java.util.HashSet;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 // import org.hibernate.mapping.List;
@@ -141,8 +143,9 @@ public class PublicationService {
     
 
     public List<SearchDTO> searchPublications(String partialTitle) {
-        List<Publications> results = publicationRepository.findByTitleStartingWithIgnoreCase(partialTitle);
-        List<Publications> results2 = publicationRepository.findByAuthorStartingWithIgnoreCase(partialTitle);
+        Set<Publications> results = new HashSet<>(publicationRepository.findByTitleContainingIgnoreCase(partialTitle));
+results.addAll(publicationRepository.findByAuthorContainingIgnoreCase(partialTitle));
+Set<Publications> results2 = new HashSet<>(publicationRepository.findByAuthorContainingIgnoreCase(partialTitle));
         results.addAll(results2);
         return results.stream().map(this::convertToSearchDTO).collect(Collectors.toList());
     }
