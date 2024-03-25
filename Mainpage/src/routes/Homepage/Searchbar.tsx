@@ -6,6 +6,7 @@ const Searchbar = () => {
     const [input, setInput] = useState("");
     type SearchResultItem = {
       title: string;
+      author: string;
       // other properties...
   };
     const [searchResult, setSearchResult] = useState<Array<SearchResultItem>>([]);
@@ -32,16 +33,22 @@ const Searchbar = () => {
     };
 
     return (
-        <div className='input-component'>
-            <input placeholder='Type to Search... ' value={input} onChange={handleChange} />
-            <FaSearch id='search-icon' onClick={handleSearchClick} />
-            {searchResult && <div>{searchResult.map((item: SearchResultItem, index: number) => (
-                    <div key={index}>
-                        {item.title}
-                    </div>
-                ))}</div>}
-        </div>
-    );
+      <div className='input-component'>
+          <div className='search-bar'>
+              <input placeholder='Type to Search... ' value={input} onChange={handleChange} />
+              <FaSearch className='search-icon' onClick={handleSearchClick} />
+          </div>
+          <div className={`search-results ${searchResult.length > 0 ? 'with-results' : ''}`}>
+            <ul>
+              {searchResult.slice(0,10).map((item: SearchResultItem, index: number) => (
+                  <li key={index} className="search-result-item">
+                      <b>{item.title}</b> by <i>{item.author}</i>
+                  </li>
+              ))}
+              </ul>
+          </div>
+      </div>
+  );
 }
 
 export default Searchbar;
