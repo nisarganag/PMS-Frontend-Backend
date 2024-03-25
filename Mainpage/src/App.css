@@ -24,12 +24,7 @@
     color: #708090; /* Slate gray color for moon icon */
     font-size: 20px;
   }
-  
   /* Default light mode styles */
-  body {
-    background-color: #ffffff;
-    color: #000000;
-  }
 
   .light-mode{
     background-color: #ffffff;
@@ -78,4 +73,15 @@
     color: #fff;
     z-index: 10;
   }
+  #root {
   
+    text-align: center;
+  }
+  
+  .card {
+    
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
