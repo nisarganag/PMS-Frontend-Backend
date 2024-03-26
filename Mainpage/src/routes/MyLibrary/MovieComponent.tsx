@@ -14,12 +14,13 @@ const MovieComponent = ({ movieInfo }: MovieComponentProps) => {
   return (
     <div className="wrapper-profile">
       <div className="container-profile">
-        <h1>List of cards</h1>
+        <h1>My Library</h1>
         <div className="grid grid-three-column">
           {movieInfo.map((curVal:MovieData, id: Key | null | undefined) => {
             return <MovieCard key={id} myData={curVal} />;
           })}
         </div>
+        
       </div>
     </div>
   );

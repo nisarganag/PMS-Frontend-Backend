@@ -15,7 +15,7 @@ const Home = () => {
 
   const getCardData = async () => {
     const res = await fetch(
-      ``//api
+      `https://jsonplaceholder.typicode.com/posts?_limit=9&_page=${page}`//api
     );
     const data = await res.json();
     // console.log(data);
@@ -28,9 +28,9 @@ const Home = () => {
   }, [page]);
 
   const handelInfiniteScroll = async () => {
-    // console.log("scrollHeight" + document.documentElement.scrollHeight);
-    // console.log("innerHeight" + window.innerHeight);
-    // console.log("scrollTop" + document.documentElement.scrollTop);
+    console.log("scrollHeight" + document.documentElement.scrollHeight);
+    console.log("innerHeight" + window.innerHeight);
+    console.log("scrollTop" + document.documentElement.scrollTop);
     try {
       if (
         window.innerHeight + document.documentElement.scrollTop + 1 >=
