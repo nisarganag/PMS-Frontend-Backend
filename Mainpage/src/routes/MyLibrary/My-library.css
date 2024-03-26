@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Nunito:ital,wght@0,400;0,700;1,600&family=Work+Sans:wght@300;400;700;900&display=swap");
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -14,7 +14,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; */
   --by-color: #8b8b8b;
   --dark-id-background: #000000;
 }
@@ -22,21 +22,8 @@
     --white-color: var(--dark-text-color);
     --highlight-color: #ffffff; 
 }
-html {
-  font-size: 62.85%;
-  font-family: "Cormorant Garamond", serif;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-h1 {
+.library-title {
   font-size: 3.2em;
   line-height: 1.1;
   font-family: "Cormorant Garamond", serif;
@@ -64,12 +51,12 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 } */
 
-.wrapper-profile {
+.wrapper-library {
   width: 100%;
   display: flex;
   
 }
-.container-profile {
+.container-library {
   
   max-width: 100%;
   margin: 0 auto;
@@ -77,32 +64,61 @@ button:focus-visible {
 
 .grid {
   display: grid;
-  gap: 3.2rem;
+  gap: 2rem;
 }
 .grid-three-column {
   height: 50px;
 }
 
-.card {
-  /* background-color: #535bf2; */
-  padding: 0 3.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 20%;
+.library-card {
+  background-color: #929292;
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  height: 100px;
+  width: 95%;
+  margin: 5px 1% 5px 1%;
+  float: left;
+  position: relative;
+  transition: height 0.5s;
+  -webkit-transition: height 0.5s;
+  text-align: center;
+  overflow: hidden;
+  transition: 1s;
+}
+.library-card:hover{
+  height: 40vh;
+  
 }
 
-.card-info {
-  padding: 1rem ;
+ .library-card-info {
   border-radius: 1rem;
-  background-color: var(--by-color);
-  text-align: center;
-  align-items: center;
-  display: flex;
   gap: 10px;
+  border-radius: 5px;
+  border: 10px;
+  
 }
-@media screen and (max-width: 1119px) {
+
+.library-card-body{
+  padding: 15px 50px 0px 50px;
+  text-align: left;
+}
+
+.library-card-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.library-card-title{
+  font-size: 38px;
+  margin-top: -8px;
+}
+
+.library-card-author{
+  margin-top: -35px;
+}
+
+/* @media screen and (max-width: 1119px) {
   .container {
     max-width: 90%;
   }
@@ -117,7 +133,7 @@ button:focus-visible {
     padding: 0rem;
     background-color: #213547;
   }
-}
+} */
 
 .card-id {
   width: 4rem;
@@ -136,6 +152,7 @@ p {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.4rem;
   line-height: 1.6rem;
+  
 }
 h2 {
   padding: 1rem;

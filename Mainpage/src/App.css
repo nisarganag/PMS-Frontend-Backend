@@ -50,7 +50,6 @@
   
   /* Styles for main content area */
   .content {
-    display: flex;
     height: 100vh;
   }
   
@@ -58,13 +57,16 @@
   .sidebar {
     width: 200px;
     background-color: #000000; /* Dark background color for sidebar */
-    color: #fff; /* White color for text in sidebar */
+    color: #fff;
+    z-index: 100; /* White color for text in sidebar */
   }
   
   /* Styles for main content */
   .routes {
     flex: 1;
     padding: 20px;
+    margin-left: 100px;
+    backdrop-filter: blur(5px);
   }
 
   .DropDownprofile{
@@ -73,15 +75,10 @@
     color: #fff;
     z-index: 10;
   }
-  #root {
-  
-    text-align: center;
+
+  @media screen and (max-width: 768px) {
+    .routes{
+      margin-left: 10px;
+    }
   }
   
-  .card {
-    
-  }
-  
-  .read-the-docs {
-    color: #888;
-  }

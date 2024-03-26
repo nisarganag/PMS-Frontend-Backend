@@ -33,7 +33,7 @@ function App() {
 
         <div className="content">
           <Sidebar />
-          <div className="routes">
+          <div className="routes ">
             <Routes>
               <Route path="/" element={<Home isDarkMode={isDarkMode} />} />
               <Route path="/My_profile" element={<My_profile />} />

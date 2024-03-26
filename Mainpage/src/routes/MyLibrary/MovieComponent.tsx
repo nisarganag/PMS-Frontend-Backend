@@ -6,15 +6,16 @@ interface MovieData {
   title: string;
   description: string;
   body: string;
+  author: string;
 }
 interface MovieComponentProps {
   movieInfo: MovieData[];
 }
 const MovieComponent = ({ movieInfo }: MovieComponentProps) => {
   return (
-    <div className="wrapper-profile">
-      <div className="container-profile">
-        <h1>My Library</h1>
+    <div className="wrapper-library">
+      <div className="container-library">
+        <h1 className="library-title">My Library</h1>
         <div className="grid grid-three-column">
           {movieInfo.map((curVal:MovieData, id: Key | null | undefined) => {
             return <MovieCard key={id} myData={curVal} />;

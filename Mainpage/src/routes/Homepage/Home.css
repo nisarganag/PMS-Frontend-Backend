@@ -8,22 +8,21 @@
     .page-logo{
         mix-blend-mode:lighten ;
     }
-
-
   }
 
  
 .homePage{
     background-color: none;
-    height: 100vh;
-    width: 100vw;
-    margin-left: -80px;
+    align-items: left;
+    text-align: center;
+    padding: 30px;
+    width: 100%;
+    margin-left:25% ;
 }
 
 .search_bar{
     padding-top: 20vh;
-    width: 40%;
-    margin: auto;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,7 +35,6 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin-bottom: 60px ;
-    margin-left: 10px;
     background-size: 600px;
     vertical-align: bottom;
     width: 80vh;

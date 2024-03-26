@@ -7,6 +7,7 @@ interface CardData {
   title: string;
   description: string;
   body: string;
+  author: string;
 }
 const Home = () => {
   const [card, setCard] = useState<CardData[]>([]);

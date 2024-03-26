@@ -70,7 +70,7 @@ const Sidebar = () => {
     }
 
     return (
-        <main className={show ? 'space-toggle' : ''}>
+        <main className={`sidebar-container ${show ? 'space-toggle' : ''}`}>
             <header className={`header ${show ? 'space-toggle' : ''}`}>
                 <div className="header-toggle" onClick={() => setShow(!show)}>
                     <FaBars />

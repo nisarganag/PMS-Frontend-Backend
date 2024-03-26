@@ -45,7 +45,7 @@ main {
     align-items: center;
     background-color: var(--first-color);
     padding: 0 1rem;
-    
+    z-index: 100;
 }
 .dark-mode {
     --first-color: var(--dark-background);
@@ -58,7 +58,7 @@ main {
     }
 
     .sidebar {
-        background-color: #101111; /* Set the background color to black */
+        background-color: #1c1c1c; /* Set the background color to black */
     }
 }
 .header-toggle {
@@ -233,8 +233,7 @@ main {
 .dropdown {
     position: relative;
     display: inline-block;
-    
-    
+    z-index: 100;
   }
   
   .dropbtn {
@@ -282,7 +281,7 @@ main {
     background-color: var(--white-color);
     left: -110px;
     border-radius: 5px;
-    z-index: 0;
+    z-index: 110;
   }
   
   .value {
