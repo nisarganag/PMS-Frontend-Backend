@@ -75,6 +75,7 @@ public class UserService {
 
     private ViewUserDTO convertToViewUserDTO(Users user) {
         ViewUserDTO dto = new ViewUserDTO();
+        dto.setId(user.getId());
         dto.setEmail(user.getEmail());
         dto.setFirstName(user.getFirstName());
         dto.setLastName(user.getLastName());
