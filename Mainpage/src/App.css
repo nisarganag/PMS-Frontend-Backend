@@ -50,7 +50,8 @@
   
   /* Styles for main content area */
   .content {
-    height: 91vh;
+    height: 100vh;
+    overflow: auto;
   }
   
   /* Styles for sidebar */
