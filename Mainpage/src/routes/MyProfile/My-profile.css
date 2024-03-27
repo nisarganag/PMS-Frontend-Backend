@@ -54,6 +54,7 @@ body {
   
   .profile-detail{
     display: flex;
+    
   }
   label {
     display: block;

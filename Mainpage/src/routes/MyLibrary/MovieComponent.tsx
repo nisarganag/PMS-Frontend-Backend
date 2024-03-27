@@ -2,10 +2,9 @@ import { Key } from "react";
 import MovieCard from "./MovieCard";
 
 interface MovieData {
-  id: number;
   title: string;
   description: string;
-  body: string;
+  language: string;
   author: string;
 }
 interface MovieComponentProps {

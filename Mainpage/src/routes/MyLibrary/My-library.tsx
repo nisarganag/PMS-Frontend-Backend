@@ -3,11 +3,15 @@ import Loading from "./Loading";
 import MovieComponent from "./MovieComponent";
 import "./My-library.css";
 interface CardData {
-  id: number;
   title: string;
   description: string;
-  body: string;
+  language: string;
   author: string;
+}
+interface Publication {
+  title: string;
+  author: string;
+  // include other properties as needed
 }
 const Home = () => {
   const [card, setCard] = useState<CardData[]>([]);
@@ -15,12 +19,29 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   const getCardData = async () => {
-    const res = await fetch(
-      `https://jsonplaceholder.typicode.com/posts?_limit=9&_page=${page}`//api
+    setLoading(true);
+    const userEmail = localStorage.getItem("emailId");
+    let res = await fetch(`http://localhost:8080/api/v1/auth/view?email=${userEmail}`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+  const userData = await res.json();
+  const userId = userData.id;
+    res = await fetch(
+      `http://localhost:8080/api/v1/publications/all/${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
     );
     const data = await res.json();
-    // console.log(data);
-    setCard((prev) => [...prev, ...data]);
+    const publications = data.map((publication: Publication) => ({
+      title: publication.title,
+      author: publication.author,
+    }));
+    setCard([...publications]);
     setLoading(false);
   };
 
