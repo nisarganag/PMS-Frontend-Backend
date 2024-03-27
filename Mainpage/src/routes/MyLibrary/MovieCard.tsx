@@ -14,8 +14,8 @@ const MovieCard = ({myData}: MovieCardProps) => {
       <div className="library-card-info">
         <div className="library-card-header">
           <h2 className="library-card-title">{title.substr(0, 20)}</h2>
-          <h2 className="library-card-author">By. khsdl kahsdl</h2>
-          {/* <h2>{author}</h2> */}
+          {/* <h2 className="library-card-author">By. khsdl kahsdl</h2> */}
+          <h2 >{author}</h2>
         </div>
         <p className="library-card-body">{body.substr(0, 300)}</p>
       </div>

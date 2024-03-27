@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import useLocalStorage from "use-local-storage";
 
 import My_profile from "./routes/MyProfile/My-profile"
 import Advanced_search from './routes/Advances-search';
@@ -17,12 +18,14 @@ import Login from './routes/LoginPage/Login';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
+  
+  
   const toggleMode = () => {
     setIsDarkMode(!isDarkMode);
   };
-
+  const preference = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [isDarkMode, setIsDarkMode] = useLocalStorage("isDarkMode", preference);
+  // const [isDarkMode, setIsDarkMode] = useLocalStorage("isDarkMode", preference);
   return (
     <>
       <div className={`App ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>

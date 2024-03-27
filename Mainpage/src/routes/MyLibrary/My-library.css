@@ -1,20 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Nunito:ital,wght@0,400;0,700;1,600&family=Work+Sans:wght@300;400;700;900&display=swap");
 
+
 :root {
   /* font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: 400; */
 
   color-scheme: light dark;
   color: var(--first-color);
   background-color: var(--first-color);
 
-  font-synthesis: none;
+  /* font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%; */
+  -webkit-text-size-adjust: 100%;  */
   --by-color: #8b8b8b;
   --dark-id-background: #000000;
 }
@@ -54,10 +55,8 @@ button:focus-visible {
 .wrapper-library {
   width: 100%;
   display: flex;
-  
 }
 .container-library {
-  
   max-width: 100%;
   margin: 0 auto;
 }

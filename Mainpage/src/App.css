@@ -50,7 +50,7 @@
   
   /* Styles for main content area */
   .content {
-    height: 100vh;
+    height: 91vh;
   }
   
   /* Styles for sidebar */
@@ -67,6 +67,7 @@
     padding: 20px;
     margin-left: 100px;
     backdrop-filter: blur(5px);
+
   }
 
   .DropDownprofile{
